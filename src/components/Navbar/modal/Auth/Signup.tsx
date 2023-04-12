@@ -3,6 +3,7 @@ import {
   switchToResetPassword,
   switchToSignup,
 } from "@/redux/features/AuthModal/AuthModalSlice";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import React, { useState } from "react";
 import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
 import UI from "../../../../styles/UI.module.scss";
@@ -11,6 +12,9 @@ import { useDispatch } from "react-redux";
 import { error } from "console";
 import { FiAlertCircle } from "react-icons/fi";
 import Select from "./Select";
+import { auth, firestore } from "@/firebase/config";
+import { spawn } from "child_process";
+import { doc, setDoc } from "firebase/firestore";
 type SignupProps = {};
 const countryList = [
   { label: "Afghanistan", value: "afghanistan" },
@@ -211,6 +215,8 @@ const countryList = [
   { label: "Zimbabwe", value: "zimbabwe" },
 ];
 const Signup: React.FC<SignupProps> = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -221,7 +227,7 @@ const Signup: React.FC<SignupProps> = () => {
   const [country, setCountry] = useState(countryList[0]);
   const [formError, setFormError] = useState("");
   const dispatch = useDispatch();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormError("");
     if (password != confirm) {
@@ -231,6 +237,29 @@ const Signup: React.FC<SignupProps> = () => {
     if (password.length < 8) {
       setFormError("Password too short, it should be at least 8 characters");
       return;
+    }
+    try {
+      //create new user
+      const UserCredential = await createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      if (error) {
+        setFormError(error?.message!);
+        return;
+      }
+      console.log(UserCredential?.user.uid);
+
+      // add user properties
+      const userDocRef = doc(firestore, "users", UserCredential?.user.uid!);
+      setDoc(userDocRef, {
+        ...JSON.parse(JSON.stringify(UserCredential?.user)),
+        country: country.value,
+        firstName,
+        lastName,
+      });
+    } catch (err: any) {
+      setFormError(err?.message!);
     }
   };
   return (
@@ -338,6 +367,7 @@ const Signup: React.FC<SignupProps> = () => {
 
       <div className={`${styles.modal_right_form_buttonContainer}`}>
         <button className={`${UI.authBtn}`}>Sign up</button>
+        {loading && <span>Loading...</span>}
         <div className={`${UI.blackText}`}>
           Already have an account?{" "}
           <span

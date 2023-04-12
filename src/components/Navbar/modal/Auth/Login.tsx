@@ -7,13 +7,26 @@ import {
   switchToResetPassword,
   switchToSignup,
 } from "@/redux/features/AuthModal/AuthModalSlice";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/firebase/config";
+
 type LoginProps = {};
 
 const Login: React.FC<LoginProps> = () => {
   const [TogglePassword, setTogglePassword] = useState(false);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const dispatch = useDispatch();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+    } catch (error) {}
+  };
   return (
-    <form className={`${styles.modal_right_form}`}>
+    <form
+      onSubmit={(e) => handleSubmit(e)}
+      className={`${styles.modal_right_form}`}
+    >
       <label className={`${styles.modal_right_form_label}`}>
         Email
         <input

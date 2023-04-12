@@ -1,0 +1,205 @@
+@use "./abstracts/variablies" as var;
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.modal {
+  position: absolute;
+  z-index: 2;
+  //temp
+  min-height: 60rem;
+  //
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 90rem;
+  height: fit-content;
+  border-radius: 2rem;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  &_close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    & svg {
+      vertical-align: middle;
+      width: 4rem;
+      height: 4rem;
+      color: var.$color-secondary;
+    }
+  }
+  &_left {
+    position: relative;
+    width: 50%;
+    background: var.$color-primary;
+    overflow: hidden;
+    color: var.$color-white;
+    padding: 1rem 0 0 3rem;
+
+    &_text {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      height: 100%;
+    }
+    & h1 {
+      font-size: 7rem;
+    }
+    & h2 {
+      font-size: 3rem;
+      justify-self: start;
+      font-weight: 600;
+    }
+    &_circle1 {
+      position: absolute;
+      top: -7rem;
+      left: -5rem;
+      z-index: 1;
+      width: 25rem;
+      height: 25rem;
+      border-radius: 50%;
+      background: rgba(41, 120, 160, 0.47);
+      filter: blur(75px);
+    }
+    &_circle2 {
+      position: absolute;
+      bottom: -8rem;
+      right: -4rem;
+      width: 30rem;
+      height: 25rem;
+      background: rgba(41, 120, 160, 0.47);
+      filter: blur(75px);
+    }
+  }
+  &_right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 4rem 6rem;
+    font-size: var.$default-font-size;
+    font-weight: 500;
+    color: var.$color-secondary;
+    background: var.$color-white;
+    &_title {
+      font-size: 4rem;
+      width: 100%;
+    }
+    &_form {
+      margin: 3rem 0 3rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+      &_input {
+        width: 100%;
+        font-size: inherit;
+        color: var.$colo-grey-dark;
+        padding: 1.3rem 1rem;
+        padding-right: 4rem;
+        border: 3px solid var.$color-secondary;
+        border-radius: 0.5rem;
+        transition: all 0.2s linear;
+      }
+      &_input:focus {
+        outline: none;
+        border: 3px solid var.$color-primary;
+      }
+      &_label {
+        color: var.$colo-grey-dark;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      &_buttonContainer {
+        width: 100%;
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        &_signup {
+          cursor: pointer;
+        }
+      }
+      &_forgetPassword {
+        font-weight: 500;
+        font-size: var.$default-font-size;
+        margin: 0.3rem 0 0 0;
+        cursor: pointer;
+      }
+      &_PasswordContainer {
+        width: 100%;
+        position: relative;
+      }
+      &_TogglePassword {
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        & svg {
+          width: 2.2rem;
+          height: 2.2rem;
+          color: var.$color-secondary;
+        }
+      }
+    }
+    &_otherProvider {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      &_or {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        height: fit-content;
+        &_line {
+          background: rgba(var.$colo-grey-dark, 0.3);
+          height: 1.5px;
+          width: 45%;
+          border-radius: 3rem;
+        }
+        &_text {
+          color: rgba(var.$colo-grey-dark, 0.6);
+          margin-top: 0 0.5rem;
+        }
+      }
+      &_google {
+        position: relative;
+        width: 100%;
+        border: 3px solid rgba(var.$colo-grey-dark, 0.3);
+        border-radius: 0.5rem;
+        color: rgba(var.$colo-grey-dark, 0.6);
+        text-align: center;
+        padding: 1.2rem 1rem;
+        cursor: pointer;
+        &_img {
+          width: 2.5rem;
+          height: 2.5rem;
+          position: absolute;
+          left: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(0.3rem);
+  background: rgba($color: #000000, $alpha: 0.2);
+  z-index: 1;
+}

@@ -1,0 +1,35 @@
+@use "./abstracts/variablies" as var;
+
+.btn {
+  padding: 1rem 1.3rem;
+  color: var.$color-white;
+  background: var.$color-primary;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: var.$default-font-size;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.btn:active {
+  transform: translateY(1.5px);
+}
+.authBtn {
+  color: var.$color-white;
+  background: var.$color-secondary;
+  padding: 1rem;
+  border: none;
+  width: 100%;
+  font-size: var.$default-font-size;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.secondaryText {
+  color: var.$color-secondary;
+}
+.blackText {
+  color: var.$colo-grey-dark;
+}

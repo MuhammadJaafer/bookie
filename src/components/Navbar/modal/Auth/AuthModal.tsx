@@ -32,7 +32,19 @@ const AuthModal: React.FC<AuthModalProps> = () => {
         <div className={`${styles.modal_left}`}>
           <div className={`${styles.modal_left_text}`}>
             <h2>bookie</h2>
-            <h1>Welcome back!</h1>
+            {AuthModal.view === "login" && <h1>Welcome back!</h1>}
+            {AuthModal.view === "signup" && (
+              <>
+                <h1>Join bookie and Start Reading Now!</h1>
+                <h3>
+                  Sign up for Bookie and get access to an incredible selection
+                  of books.
+                </h3>
+              </>
+            )}
+            {AuthModal.view === "resetPassword" && (
+              <h1>Don&apos;t worry We Got your back</h1>
+            )}
           </div>
           <div className={`${styles.modal_left_circle1}`}></div>
           <div className={`${styles.modal_left_circle2}`}></div>

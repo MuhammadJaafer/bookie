@@ -10,7 +10,7 @@ import UI from "../../../../styles/UI.module.scss";
 import styles from "../../../../styles/AuthModal.module.scss";
 import { useDispatch } from "react-redux";
 import { error } from "console";
-import { FiAlertCircle } from "react-icons/fi";
+import { FiAlertCircle, FiLoader } from "react-icons/fi";
 import Select from "./Select";
 import { auth, firestore } from "@/firebase/config";
 import { spawn } from "child_process";
@@ -366,8 +366,10 @@ const Signup: React.FC<SignupProps> = () => {
       )}
 
       <div className={`${styles.modal_right_form_buttonContainer}`}>
-        <button className={`${UI.authBtn}`}>Sign up</button>
-        {loading && <span>Loading...</span>}
+        <button className={`${UI.authBtn}`}>
+          {loading ? <FiLoader /> : "Sign up"}
+        </button>
+
         <div className={`${UI.blackText}`}>
           Already have an account?{" "}
           <span

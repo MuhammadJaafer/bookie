@@ -9,18 +9,24 @@ import {
 } from "@/redux/features/AuthModal/AuthModalSlice";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/config";
+import { FiAlertCircle, FiLoader } from "react-icons/fi";
 
 type LoginProps = {};
 
 const Login: React.FC<LoginProps> = () => {
   const [TogglePassword, setTogglePassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const dispatch = useDispatch();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-    } catch (error) {}
+      signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.log("handleSubmit Login page error", error);
+    }
   };
   return (
     <form
@@ -33,6 +39,10 @@ const Login: React.FC<LoginProps> = () => {
           className={`${styles.modal_right_form_input}`}
           type="email"
           name="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
           required
         />
       </label>
@@ -44,6 +54,10 @@ const Login: React.FC<LoginProps> = () => {
               className={`${styles.modal_right_form_input}`}
               type={TogglePassword ? "text" : "password"}
               name="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
               required
             />
             <div
@@ -65,8 +79,16 @@ const Login: React.FC<LoginProps> = () => {
           Forget Password?
         </h3>
       </div>
+      {/* form Error */}
+      {error && (
+        <div className={`${styles.modal_right_form_error}`}>
+          <FiAlertCircle /> {error?.message}
+        </div>
+      )}
       <div className={`${styles.modal_right_form_buttonContainer}`}>
-        <button className={`${UI.authBtn}`}>Sign In</button>
+        <button className={`${UI.authBtn}`}>
+          {loading ? <FiLoader /> : "Sign In"}
+        </button>
         <div className={`${UI.blackText}`}>
           Don&apos;t have an account?{" "}
           <span

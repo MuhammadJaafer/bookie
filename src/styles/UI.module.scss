@@ -1,16 +1,27 @@
 @use "./abstracts/variablies" as var;
-
+@use "./Animations.scss" as ani;
 .btn {
-  padding: 1rem 1.3rem;
+  padding: 0.8rem 1rem;
   color: var.$color-white;
   background: var.$color-primary;
   border: none;
   border-radius: 0.5rem;
   font-size: var.$default-font-size;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: capitalize;
   cursor: pointer;
   transition: all 0.1s linear;
+  & svg {
+    @include ani.keyframes(rotate) {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @include ani.animate(rotate, 1s, linear, infinite);
+  }
 }
 
 .btn:active {
@@ -25,6 +36,17 @@
   font-size: var.$default-font-size;
   font-weight: 500;
   cursor: pointer;
+  & svg {
+    @include ani.keyframes(rotate) {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @include ani.animate(rotate, 1s, linear, infinite);
+  }
 }
 
 .secondaryText {
@@ -95,4 +117,41 @@
 }
 .optionsHide {
   display: none;
+}
+
+///cart
+.cartIcon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var.$color-primary;
+  position: relative;
+  cursor: pointer;
+  & svg {
+    color: var.$color-white;
+    width: 2.2rem;
+    height: 2.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  & div {
+    font-size: 1.4rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: var.$color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var.$color-white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(15%, -35%);
+    z-index: 3;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
 }

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import UI from "../../../styles/UI.module.scss";
+import UI from "../../styles/UI.module.scss";
 import { useDispatch } from "react-redux";
 import { ToggleModal } from "@/redux/features/AuthModal/AuthModalSlice";
 import { auth } from "@/firebase/config";

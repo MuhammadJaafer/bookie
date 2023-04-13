@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../../../styles/AuthModal.module.scss";
-import googleIcon from "../../../../../public/images/google-logo.png";
+import styles from "../../../styles/AuthModal.module.scss";
+import googleIcon from "../../../../public/images/google-logo.png";
 import Image from "next/image";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/config";

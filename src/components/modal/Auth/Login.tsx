@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import UI from "../../../../styles/UI.module.scss";
-import styles from "../../../../styles/AuthModal.module.scss";
+import UI from "../../../styles/UI.module.scss";
+import styles from "../../../styles/AuthModal.module.scss";
 import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
 import { useDispatch } from "react-redux";
 import {

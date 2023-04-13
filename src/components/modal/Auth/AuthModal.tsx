@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import styles from "../../../../styles/AuthModal.module.scss";
+import styles from "../../../styles/AuthModal.module.scss";
 import { RootState, store } from "@/redux/store/store";
 import {
   AuthModalState,
   ToggleModal,
+  HideModal,
 } from "@/redux/features/AuthModal/AuthModalSlice";
 import { FiX } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,7 +25,7 @@ const AuthModal: React.FC<AuthModalProps> = () => {
         <div
           className={`${styles.modal_close}`}
           onClick={() => {
-            dispatch(ToggleModal());
+            dispatch(HideModal());
           }}
         >
           <FiX />
@@ -59,7 +60,10 @@ const AuthModal: React.FC<AuthModalProps> = () => {
           <OtherProvider />
         </div>
       </div>
-      <div className={`${styles.modal_overlay}`}></div>
+      <div
+        onClick={() => dispatch(HideModal())}
+        className={`${styles.modal_overlay}`}
+      ></div>
     </div>
   );
 };

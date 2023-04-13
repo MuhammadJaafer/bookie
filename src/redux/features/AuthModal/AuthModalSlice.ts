@@ -27,6 +27,9 @@ export const AuthModalSlice = createSlice({
     ToggleModal: (state) => {
       state.open = !state.open;
     },
+    HideModal: (state) => {
+      state.open = false;
+    },
   },
 });
 
@@ -35,5 +38,6 @@ export const {
   switchToResetPassword,
   switchToSignup,
   ToggleModal,
+  HideModal,
 } = AuthModalSlice.actions;
 export default AuthModalSlice.reducer;

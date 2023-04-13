@@ -8,8 +8,7 @@
 }
 .modal {
   position: absolute;
-  z-index: 2;
-
+  z-index: 200;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -229,5 +228,5 @@
   height: 100vh;
   backdrop-filter: blur(0.3rem);
   background: rgba($color: #000000, $alpha: 0.2);
-  z-index: 1;
+  z-index: 100;
 }

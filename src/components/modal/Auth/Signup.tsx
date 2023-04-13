@@ -6,8 +6,8 @@ import {
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import React, { useState } from "react";
 import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
-import UI from "../../../../styles/UI.module.scss";
-import styles from "../../../../styles/AuthModal.module.scss";
+import UI from "../../../styles/UI.module.scss";
+import styles from "../../../styles/AuthModal.module.scss";
 import { useDispatch } from "react-redux";
 import { error } from "console";
 import { FiAlertCircle, FiLoader } from "react-icons/fi";

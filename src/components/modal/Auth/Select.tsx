@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import UI from "../../../../styles/UI.module.scss";
+import UI from "../../../styles/UI.module.scss";
 type SelectProps = {
   options: { label: string; value: string }[];
   value: { label: string; value: string };

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import UI from "../../styles/UI.module.scss";
+import UI from "../../../styles/UI.module.scss";
 import { useDispatch } from "react-redux";
 import { ToggleModal } from "@/redux/features/AuthModal/AuthModalSlice";
 import { auth } from "@/firebase/config";
@@ -26,19 +26,19 @@ const SignIn: React.FC<SignInProps> = () => {
             {loading ? <FiLoader /> : "Log out"}
           </button>
           <div className={`${UI.cartIcon}`}>
-            <div>{1}</div>
+            <div>{2}</div>
             <FiShoppingCart />
           </div>
         </>
       ) : (
-        <Link
-          href={"/"}
+        <button
           onClick={() => {
             dispatch(ToggleModal());
           }}
+          className={`${UI.btn}`}
         >
-          <button className={`${UI.btn}`}>Sign in</button>
-        </Link>
+          Sign in
+        </button>
       )}
     </>
   );

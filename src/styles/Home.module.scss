@@ -1,0 +1,68 @@
+@use "./abstracts/variablies" as var;
+@use "./Animations.scss" as ani;
+
+.hero {
+  position: relative;
+  margin: 1rem 0 4rem 0;
+  width: 100%;
+  min-height: 50rem;
+  height: 70vh;
+  max-height: 80rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    270deg,
+    rgba(110, 189, 167, 0.6) 0%,
+    rgba(109, 146, 189, 0.6) 100%
+  );
+  border-radius: 3rem;
+  &_text {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+    h1 {
+      font-family: var(--font-crafter);
+      font-weight: 400;
+      color: var.$color-grey-dark;
+      font-size: 11rem;
+    }
+    h4 {
+      color: rgba(var.$color-grey-dark, 0.6);
+      font-weight: 400;
+      font-size: 2rem;
+      max-width: 70rem;
+    }
+  }
+
+  &_circle1 {
+    position: absolute;
+    height: 50rem;
+    width: 60rem;
+    top: 0;
+    right: 0;
+    transform: translate(20%, -45%);
+    z-index: 1;
+    background: #f1abab;
+    filter: blur(200px);
+  }
+  &_circle2 {
+    position: absolute;
+    height: 50rem;
+    width: 60rem;
+    bottom: 0;
+    left: 0;
+    transform: translate(-10%, 50%);
+    z-index: 1;
+    background: #ecf1ab;
+    filter: blur(250px);
+  }
+}

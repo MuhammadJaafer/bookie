@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/Navbar/Navbar/Navbar";
 import Providers from "@/providers/providers";
 import localFont from "@next/font/local";
 import styles from "../styles/MainLayout.module.scss";

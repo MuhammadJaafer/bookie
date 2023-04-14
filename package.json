@@ -27,6 +27,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "encoding": "^0.1.13"
   }
 }

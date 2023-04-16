@@ -4,6 +4,7 @@ import localFont from "@next/font/local";
 import styles from "../styles/MainLayout.module.scss";
 import Modals from "@/components/modal/Modals";
 import "../styles/GlobalStyles.scss";
+import Footer from "@/components/Footer/Footer";
 const gilmer = localFont({
   src: [
     {
@@ -56,6 +57,7 @@ export default function RootLayout({
           <Providers>
             <Navbar />
             {children}
+            <Footer />
             <Modals />
           </Providers>
         </main>

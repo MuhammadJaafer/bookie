@@ -167,3 +167,59 @@
     font-size: 1.2rem;
   }
 }
+
+.smallBtn {
+  background-color: rgba(var.$color-white, 0.9);
+  color: var.$color-grey-dark;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.testimonialCard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr fit-content;
+  grid-template-rows: fit-content fit-content 1fr;
+  background: var.$color-white;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  padding-bottom: 3rem;
+  &_svg {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 5rem;
+    height: 5rem;
+    color: var.$color-secondary;
+  }
+  &_name {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    justify-self: start;
+    align-self: start;
+  }
+  &_text {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    font-weight: 400;
+    font-size: 1.8rem;
+  }
+  &_avatar {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border-radius: 50%;
+    background: var.$color-primary;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    width: 10rem;
+    height: 10rem;
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

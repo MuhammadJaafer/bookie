@@ -1,0 +1,207 @@
+@use "./abstracts/variablies" as var;
+@use "./Animations.scss" as ani;
+@use "./abstracts/mixin.scss" as mix;
+
+.about {
+  width: calc(100% + 10rem);
+  margin: 0 -5rem;
+}
+
+.ourStory {
+  width: 100%;
+  height: 90vh;
+  max-height: 90rem;
+  background: var.$color-grey-dark;
+  color: var.$color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  text-align: center;
+  &_title {
+    font-size: 10rem;
+    font-family: var(--font-crafter);
+    font-weight: 400;
+    max-width: 130rem;
+  }
+  &_para {
+    font-size: 1.9rem;
+    max-width: 130rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+  }
+}
+
+.nextStep {
+  width: 100%;
+  height: 100vh;
+  max-height: 120rem;
+  display: flex;
+  &_left {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var.$color-tertiary;
+    &_title {
+      font-size: 6rem;
+      font-family: var(--font-crafter);
+      font-weight: 400;
+      white-space: nowrap;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      color: var.$color-white;
+    }
+  }
+  &_right {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &_container {
+      height: 100%;
+      padding: 10rem 8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      &_item {
+        font-weight: 400;
+        font-size: 2rem;
+        & span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.team {
+  width: 100%;
+  height: 90vh;
+  max-height: 90rem;
+  background: var.$color-grey-dark;
+  color: var.$color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  &_title {
+    font-size: 8rem;
+    font-family: var(--font-crafter);
+    font-weight: 400;
+    max-width: 130rem;
+  }
+  &_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10rem;
+    justify-content: space-between;
+    &_item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 1rem;
+      &_img {
+        border-radius: 50%;
+        width: 30rem;
+        height: 30rem;
+        filter: grayscale(1);
+        transition: all 0.3s linear;
+      }
+
+      &_name {
+        font-family: var(--font-crafter);
+        font-weight: 400;
+        transition: all 0.3s linear;
+      }
+      &_role {
+        font-size: 1.3rem;
+        letter-spacing: 0.1rem;
+        font-weight: 600;
+        color: rgba(var.$color-white, 0.6);
+        transition: all 0.3s linear;
+      }
+      &:hover &_img {
+        filter: grayscale(0);
+      }
+      &:hover &_name {
+        color: var.$color-tertiary-light;
+      }
+      &:hover &_role {
+        color: var.$color-tertiary;
+      }
+    }
+  }
+}
+
+.follow {
+  width: 100%;
+  height: 100vh;
+  max-height: 120rem;
+  display: flex;
+  &_left {
+    width: 100%;
+    height: 100%;
+    background: var.$color-primary;
+    color: var.$color-white;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    &_title {
+      font-size: 6rem;
+      font-family: var(--font-crafter);
+      font-weight: 400;
+      margin-left: 10rem;
+    }
+    &_container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      gap: 5rem;
+      align-items: flex-start;
+      & a {
+        width: 100%;
+      }
+      &_item {
+        width: 100%;
+        max-width: 50rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 3rem 1rem;
+        border-radius: 0 2rem 2rem 0;
+        background: var.$color-white;
+        background: #ffffff;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        & svg {
+          color: var.$color-primary;
+          width: 6rem;
+          height: 6rem;
+        }
+        &_title {
+          color: var.$color-primary;
+          font-size: 5rem;
+        }
+      }
+    }
+  }
+  &_right {
+    height: 100%;
+    background: #fffd98;
+    padding: 0 8rem;
+    display: flex;
+    align-items: flex-end;
+    & img {
+    }
+  }
+}

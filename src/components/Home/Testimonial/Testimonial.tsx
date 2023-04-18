@@ -37,9 +37,14 @@ const Testimonial: React.FC<TestimonialProps> = () => {
         </p>
       </div>
       <div className={`${styles.testimonial_cards}`}>
-        {testimonialData.map((card) => (
+        {testimonialData.map((card, i) => (
           // eslint-disable-next-line react/jsx-key
-          <TestimonialCard text={card.text} name={card.name} icon={card.icon} />
+          <TestimonialCard
+            key={i}
+            text={card.text}
+            name={card.name}
+            icon={card.icon}
+          />
         ))}
       </div>
       <div className={`${styles.testimonial_footer}`}>

@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../../styles/About.module.scss";
-import OurStory from "./OurStory";
-import OurNextStep from "./OurNextStep";
-import Team from "./Team";
 import Follow from "./Follow";
+import OurNextStep from "./OurNextStep";
+import OurStory from "./OurStory";
+import Team from "./Team";
 
 type AboutProps = {};
 

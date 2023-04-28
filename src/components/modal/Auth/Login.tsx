@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import UI from "../../../styles/UI.module.scss";
-import styles from "../../../styles/AuthModal.module.scss";
-import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
-import { useDispatch } from "react-redux";
+import { auth } from "@/firebase/config";
 import {
   switchToResetPassword,
   switchToSignup,
 } from "@/redux/features/AuthModal/AuthModalSlice";
+import React, { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "@/firebase/config";
 import { FiAlertCircle, FiLoader } from "react-icons/fi";
-
+import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
+import { useDispatch } from "react-redux";
+import styles from "../../../styles/AuthModal.module.scss";
+import UI from "../../../styles/UI.module.scss";
 type LoginProps = {};
 
 const Login: React.FC<LoginProps> = () => {

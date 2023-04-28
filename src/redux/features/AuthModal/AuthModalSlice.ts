@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { stat } from "fs";
-
+import { state } from "fs";
 export interface AuthModalState {
   open: boolean;
   view: "login" | "signup" | "resetPassword";

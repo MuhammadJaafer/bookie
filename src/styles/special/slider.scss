@@ -21,7 +21,7 @@
 }
 .thumb {
   position: absolute;
-  top: 28%;
+  top: 20%;
   background: var.$color-grey-dark;
   border-radius: 50%;
   padding: 0.3rem;
@@ -29,6 +29,10 @@
   color: var.$color-white;
   font-weight: 400;
   font-family: inherit;
-
+  width: 2.5rem;
+  height: 2.5rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

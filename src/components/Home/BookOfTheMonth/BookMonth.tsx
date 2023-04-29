@@ -1,11 +1,11 @@
 import { client, urlFor } from "@/cms/client";
 import useSanityFetch from "@/hooks/useSanityFetch";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import styles from "../../../styles/Home.module.scss";
 type BookMonthProps = {};
 
-async function BookMonth() {
+async function BookMonth(): Promise<ReactElement<any, any>> {
   const data = await client.fetch(`*[ _type == "book_of_the_month"][0]`);
   if (!data) return <></>;
   const { background_color, description, image, title } = data!;

@@ -4,10 +4,11 @@ import BooksContainer from "./BooksContainer";
 import Search from "./Search";
 type MainContainerProps = {};
 
-const MainContainer: React.FC<MainContainerProps> = () => {
+const MainContainer = () => {
   return (
     <div className={`${styles.main}`}>
       <Search />
+      {/* @ts-expect-error Async Server Component */}
       <BooksContainer />
     </div>
   );

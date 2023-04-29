@@ -188,5 +188,15 @@
     &_title {
       font-size: 1.8rem;
     }
+    &_values {
+      display: flex;
+      max-width: 20rem;
+      justify-content: space-between;
+      margin-top: -1rem;
+      & div {
+        font-size: 1.3rem;
+        color: rgba(var.$color-grey-dark, 0.9);
+      }
+    }
   }
 }

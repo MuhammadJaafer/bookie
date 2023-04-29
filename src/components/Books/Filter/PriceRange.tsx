@@ -19,7 +19,7 @@ const PriceRange: React.FC<PriceRangeProps> = () => {
         max={150}
         ariaLabel={["Lower thumb", "Upper thumb"]}
         ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
-        renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+        // renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
         pearling
         minDistance={20}
         onChange={(val) => {
@@ -27,6 +27,10 @@ const PriceRange: React.FC<PriceRangeProps> = () => {
           setMax(val[1]);
         }}
       />
+      <div className={`${styles.filter_price_values}`}>
+        <div className={`${styles.filter_price_values_min}`}>{min}JD</div>
+        <div className={`${styles.filter_price_values_max}`}>{max}JD</div>
+      </div>
     </div>
   );
 };

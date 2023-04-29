@@ -3,9 +3,7 @@ import { urlFor } from "@/cms/client";
 import useSanityFetch from "@/hooks/useSanityFetch";
 import Image from "next/image";
 import React, { useEffect } from "react";
-import bookImg from "../../../../public/images/book.png";
 import styles from "../../../styles/Home.module.scss";
-import UI from "../../../styles/UI.module.scss";
 type BookMonthProps = {};
 
 const BookMonth: React.FC<BookMonthProps> = () => {
@@ -17,9 +15,8 @@ const BookMonth: React.FC<BookMonthProps> = () => {
     FetchData();
   }, []);
   if (error) return <>error</>;
-  if (loading) return <>Loading...</>;
-  if (!data) return <></>;
-  console.log(data);
+  if (loading) return <div className={styles.book_loading}></div>;
+  if (!data) return <div className={styles.book_loading}></div>;
   const { background_color, description, image, title } = data!;
   return (
     <>

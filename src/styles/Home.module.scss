@@ -127,6 +127,26 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 10rem;
+  &_loading {
+    width: calc(100% + 10rem);
+    margin: 10rem -5rem;
+    min-height: 50rem;
+    height: 75vh;
+    max-height: 80rem;
+    background: var.$color-grey-dark;
+    @include ani.keyframes(loading) {
+      0% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.5);
+      }
+      100% {
+        filter: brightness(1);
+      }
+    }
+    @include ani.animate(loading, 1.3s, ease-in-out, infinite);
+  }
   &_left {
     width: 60%;
     padding: 4rem 0;

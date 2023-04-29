@@ -1,12 +1,9 @@
+import Books from "@/components/Books/Books";
 import React from "react";
 
 type pageProps = {};
 
 const page: React.FC<pageProps> = () => {
-  return (
-    <div>
-      <h1>Books Page</h1>
-    </div>
-  );
+  return <Books />;
 };
 export default page;

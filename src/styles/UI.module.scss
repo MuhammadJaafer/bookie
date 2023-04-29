@@ -223,3 +223,26 @@
     }
   }
 }
+
+.loadingXl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  padding: 10rem;
+  & svg {
+    width: 10rem;
+    height: 10rem;
+    color: var.$color-grey-dark;
+    @include ani.keyframes(rotate) {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @include ani.animate(rotate, 1.4s, linear, infinite);
+  }
+}

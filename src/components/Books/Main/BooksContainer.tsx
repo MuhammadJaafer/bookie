@@ -7,7 +7,6 @@ import styles from "../../../styles/Books.module.scss";
 async function BooksContainer() {
   const data = await client.fetch(`*[ _type== "product" ]`);
   if (!data) return <></>;
-  console.log("data", data);
   return (
     <div className={`${styles.main_booksContainer}`}>
       {data.map((book: any) => {

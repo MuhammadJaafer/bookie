@@ -51,9 +51,15 @@
     &_book {
       cursor: pointer;
       height: 41rem;
+      width: 25rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      &:hover &_img {
+        & img {
+          scale: 1.08;
+        }
+      }
       &_img {
         width: 100%;
         align-self: center;
@@ -68,6 +74,7 @@
           height: 100%;
           width: auto;
           object-fit: contain;
+          transition: all 0.2s linear;
         }
       }
       &_name {
@@ -100,4 +107,86 @@
 }
 .filter {
   width: 25%;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  &_categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    &_title {
+      font-size: 1.8rem;
+    }
+    &_list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    &_item {
+      cursor: pointer;
+      color: rgba(var.$color-grey-dark, 0.6);
+      font-size: 1.5rem;
+    }
+  }
+  &_rate {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    &_title {
+      font-size: 1.8rem;
+    }
+    &_starsContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      &_stars {
+        cursor: pointer;
+        transition: all 0.2s linear;
+        &:hover {
+          scale: 1.03;
+        }
+        margin-top: auto;
+        display: flex;
+        gap: 0.5rem;
+        &_star {
+          & svg {
+            color: rgba(var.$color-grey-dark, 0.2);
+          }
+          &_active {
+            & svg {
+              color: #f1a30b;
+            }
+          }
+        }
+      }
+    }
+  }
+  &_format {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    &_title {
+      font-size: 1.8rem;
+    }
+    &_list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      &_item {
+        cursor: pointer;
+        color: rgba(var.$color-grey-dark, 0.6);
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &_price {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 20rem;
+    &_title {
+      font-size: 1.8rem;
+    }
+  }
 }

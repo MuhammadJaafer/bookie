@@ -1,22 +1,13 @@
-"use client";
-import { urlFor } from "@/cms/client";
+import { client, urlFor } from "@/cms/client";
 import useSanityFetch from "@/hooks/useSanityFetch";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import styles from "../../../styles/Home.module.scss";
 type BookMonthProps = {};
 
-const BookMonth: React.FC<BookMonthProps> = () => {
-  const { Fetch, error, loading, data } = useSanityFetch();
-  useEffect(() => {
-    const FetchData = () => {
-      Fetch(`*[ _type == "book_of_the_month" ][0]`);
-    };
-    FetchData();
-  }, []);
-  if (error) return <>error</>;
-  if (loading) return <div className={styles.book_loading}></div>;
-  if (!data) return <div className={styles.book_loading}></div>;
+async function BookMonth() {
+  const data = await client.fetch(`*[ _type == "book_of_the_month"][0]`);
+  if (!data) return <></>;
   const { background_color, description, image, title } = data!;
   return (
     <>
@@ -42,5 +33,5 @@ const BookMonth: React.FC<BookMonthProps> = () => {
       </div>
     </>
   );
-};
+}
 export default BookMonth;

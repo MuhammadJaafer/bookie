@@ -3,6 +3,7 @@ import styles from "../../../styles/Books.module.scss";
 
 type CategoryProps = {};
 const Categories = [
+  "all",
   "romance",
   "science",
   "history",

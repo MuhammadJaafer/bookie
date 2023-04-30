@@ -1,16 +1,16 @@
 "use client";
-import React from "react";
-import styles from "../../../styles/AuthModal.module.scss";
-import { RootState, store } from "@/redux/store/store";
 import {
   AuthModalState,
-  ToggleModal,
   HideModal,
+  ToggleModal,
 } from "@/redux/features/AuthModal/AuthModalSlice";
+import { RootState, store } from "@/redux/store/store";
+import React from "react";
 import { FiX } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import OtherProvider from "./OtherProvider";
+import styles from "../../../styles/AuthModal.module.scss";
 import Form from "./Form";
+import OtherProvider from "./OtherProvider";
 type AuthModalProps = {};
 
 const AuthModal: React.FC<AuthModalProps> = () => {
@@ -44,7 +44,13 @@ const AuthModal: React.FC<AuthModalProps> = () => {
               </>
             )}
             {AuthModal.view === "resetPassword" && (
-              <h1>Don&apos;t worry We Got your back</h1>
+              <>
+                <h1>We Got your back</h1>
+                <h3>
+                  Sign up for Bookie and get access to an incredible selection
+                  of books.
+                </h3>
+              </>
             )}
           </div>
           <div className={`${styles.modal_left_circle1}`}></div>
@@ -57,7 +63,7 @@ const AuthModal: React.FC<AuthModalProps> = () => {
             {AuthModal.view === "resetPassword" && "Reset Password"}
           </h2>
           <Form />
-          <OtherProvider />
+          {AuthModal.view != "resetPassword" && <OtherProvider />}
         </div>
       </div>
       <div

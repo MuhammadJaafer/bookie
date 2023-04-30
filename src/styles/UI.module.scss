@@ -67,7 +67,9 @@
 .blackText {
   color: var.$color-grey-dark;
 }
-
+.lightText {
+  color: rgba(var.$color-grey-dark, 0.6);
+}
 .selectContainer {
   margin: 1rem 0;
   position: relative;
@@ -244,5 +246,18 @@
       }
     }
     @include ani.animate(rotate, 1.4s, linear, infinite);
+  }
+}
+
+.ValignArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  & svg {
+    color: var.$color-secondary;
+    width: 2.2rem;
+    height: 2.2rem;
   }
 }

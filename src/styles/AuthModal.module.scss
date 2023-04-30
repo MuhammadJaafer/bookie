@@ -102,6 +102,19 @@
       flex-direction: column;
       gap: 0.8rem;
       width: 100%;
+      &_success {
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.8rem;
+        gap: 0.5rem;
+        &_text {
+          color: rgba(var.$color-grey-dark, 0.6);
+        }
+        &_email {
+          color: var.$color-grey-dark;
+        }
+      }
       &_error {
         color: var.$color-tertiary-light;
         font-size: 1.4rem;

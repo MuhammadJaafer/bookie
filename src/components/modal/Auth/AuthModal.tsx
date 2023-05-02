@@ -46,10 +46,7 @@ const AuthModal: React.FC<AuthModalProps> = () => {
             {AuthModal.view === "resetPassword" && (
               <>
                 <h1>We Got your back</h1>
-                <h3>
-                  Sign up for Bookie and get access to an incredible selection
-                  of books.
-                </h3>
+                <h3>No worries, we’ll send you reset instructions.</h3>
               </>
             )}
           </div>

@@ -3,8 +3,7 @@ import useSanityFetch from "@/hooks/useSanityFetch";
 import Image from "next/image";
 import React, { ReactElement, useEffect } from "react";
 import styles from "../../../styles/Home.module.scss";
-type BookMonthProps = {};
-
+export const revalidate = 3600;
 async function BookMonth(): Promise<ReactElement<any, any>> {
   const data = await client.fetch(`*[ _type == "book_of_the_month"][0]`);
   if (!data) return <></>;

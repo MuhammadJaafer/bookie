@@ -6,12 +6,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  .loadingBook {
-    width: 25rem;
-    height: 35rem;
-    background: red;
-    border: black 1px solid;
-  }
 }
 .main {
   width: 75%;
@@ -50,7 +44,8 @@
 
     &_book {
       cursor: pointer;
-      height: 41rem;
+      position: relative;
+      height: 42rem;
       width: 25rem;
       display: flex;
       flex-direction: column;
@@ -58,6 +53,38 @@
       &:hover &_img {
         & img {
           scale: 1.08;
+        }
+      }
+      &_label {
+        position: absolute;
+        display: flex;
+        top: 0;
+        right: 0;
+        gap: 0.5rem;
+        margin: 0 1rem;
+        z-index: 100;
+        text-transform: uppercase;
+        font-size: 1rem;
+        color: var.$color-white;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        &_top {
+          background: var.$color-tertiary-light2;
+          height: 4rem;
+          width: 3rem;
+          padding: 0.4rem 0;
+          display: flex;
+          justify-content: center;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+        }
+        &_new {
+          background: var.$color-primary;
+          height: 4rem;
+          width: 3rem;
+          padding: 0.4rem 0;
+          display: flex;
+          justify-content: center;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
         }
       }
       &_img {

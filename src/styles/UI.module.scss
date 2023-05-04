@@ -261,3 +261,30 @@
     height: 2.2rem;
   }
 }
+
+.loadingBook {
+  height: 42rem;
+  width: 27rem;
+  border-radius: 0.5rem;
+  background: var.$color-white-dark2;
+  padding: 3rem;
+  @include ani.keyframes(loading) {
+    0% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(0.95);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
+  @include ani.animate(loading, 1.4s, ease-in-out, infinite);
+  &_img {
+    width: 100%;
+    height: 65%;
+    background: var.$color-white-dark;
+    border-radius: 0.5rem;
+    @include ani.animate(loading, 1.4s, ease-in-out, infinite);
+  }
+}

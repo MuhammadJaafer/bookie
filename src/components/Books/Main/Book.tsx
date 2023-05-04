@@ -19,10 +19,15 @@ const Book: React.FC<BookProps> = ({ book }) => {
     }
   });
   return (
-    <div
-      className={`${styles.main_booksContainer_book}`}
-      //   key={book.slug.current}
-    >
+    <div className={`${styles.main_booksContainer_book}`}>
+      <div className={`${styles.main_booksContainer_book_label}`}>
+        <div className={`${styles.main_booksContainer_book_label_top}`}>
+          top
+        </div>
+        <div className={`${styles.main_booksContainer_book_label_new}`}>
+          new
+        </div>
+      </div>
       <div className={`${styles.main_booksContainer_book_img}`}>
         <Image
           src={urlFor(book.image).url()}

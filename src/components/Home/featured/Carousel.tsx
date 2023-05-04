@@ -14,8 +14,8 @@ type CarouselProps = {
 };
 
 const Carousel: React.FC<CarouselProps> = ({ data, title }) => {
-  const [viewNumber, setViewNumber] = useState(4);
   const [all, setAll] = useState(data);
+  const [viewNumber, setViewNumber] = useState(Math.min(4, all.length));
   const [counter, setCounter] = useState(0);
   const [view, setView] = useState<number[]>(all.slice(counter, viewNumber));
   const next = () => {

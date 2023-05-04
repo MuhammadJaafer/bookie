@@ -1,12 +1,11 @@
 "use client";
+import Book from "@/components/Books/Main/Book";
 import React, { useEffect, useState } from "react";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 import { v4 } from "uuid";
-
-import Book from "@/components/Books/Main/Book";
 import styles from "../../../styles/Home.module.scss";
 import UI from "../../../styles/UI.module.scss";
 type CarouselProps = {

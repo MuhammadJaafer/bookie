@@ -8,7 +8,7 @@ const MainContainer = () => {
   return (
     <div className={`${styles.main}`}>
       <Search />
-      {/* @ts-expect-error Async Server Component */}
+
       <BooksContainer />
     </div>
   );

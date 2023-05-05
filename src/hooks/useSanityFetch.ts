@@ -3,7 +3,7 @@ import { client } from "@/cms/client";
 import React, { useState } from "react";
 
 function useSanityFetch() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const Fetch = async (query: string) => {

@@ -21,11 +21,7 @@ const Book: React.FC<BookProps> = ({ book }) => {
   });
   return (
     <>
-      <motion.div
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.3 }}
-      >
+      <div>
         <div className={`${styles.main_booksContainer_book}`}>
           <div className={`${styles.main_booksContainer_book_label}`}>
             <div className={`${styles.main_booksContainer_book_label_top}`}>
@@ -70,7 +66,7 @@ const Book: React.FC<BookProps> = ({ book }) => {
             })}
           </div>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };

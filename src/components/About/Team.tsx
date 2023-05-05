@@ -1,7 +1,9 @@
-import React from "react";
-import styles from "../../styles/About.module.scss";
 import Image from "next/image";
+import React from "react";
 import muhammadImage from "../../../public/images/muhammad.jpg";
+import saifImage from "../../../public/images/saif.jpeg";
+import wisamImage from "../../../public/images/wisam.jpeg";
+import styles from "../../styles/About.module.scss";
 type TeamProps = {};
 
 const Team: React.FC<TeamProps> = () => {
@@ -12,7 +14,7 @@ const Team: React.FC<TeamProps> = () => {
         <div className={`${styles.team_container_item}`}>
           <Image
             className={`${styles.team_container_item_img}`}
-            src={muhammadImage}
+            src={saifImage}
             alt={"image"}
           />
           <h3 className={`${styles.team_container_item_name}`}>saif btoush</h3>
@@ -36,7 +38,7 @@ const Team: React.FC<TeamProps> = () => {
         <div className={`${styles.team_container_item}`}>
           <Image
             className={`${styles.team_container_item_img}`}
-            src={muhammadImage}
+            src={wisamImage}
             alt={"image"}
           />
           <h3 className={`${styles.team_container_item_name}`}>wisam azzam</h3>

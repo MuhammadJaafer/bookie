@@ -169,10 +169,7 @@
       gap: 0.3rem;
       &_stars {
         cursor: pointer;
-        transition: all 0.2s linear;
-        &:hover {
-          scale: 1.03;
-        }
+
         margin-top: auto;
         display: flex;
         gap: 0.5rem;

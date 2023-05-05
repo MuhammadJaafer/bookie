@@ -1,5 +1,6 @@
 "use client";
 import Book from "@/components/Books/Main/Book";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import {
   MdOutlineKeyboardArrowLeft,
@@ -49,7 +50,22 @@ const Carousel: React.FC<CarouselProps> = ({ data, title }) => {
         </div>
         <div className={`${styles.featured_main_view}`}>
           {view.map((book: any) => (
-            <Book book={book} key={v4()} />
+            <motion.div
+              initial={{
+                scale: 0.95,
+              }}
+              animate={{
+                scale: 1,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 8,
+              }}
+              key={v4()}
+            >
+              <Book book={book} />
+            </motion.div>
           ))}
         </div>
         <div

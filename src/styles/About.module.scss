@@ -115,6 +115,7 @@
         height: 30rem;
         filter: grayscale(1);
         transition: all 0.3s linear;
+        object-fit: cover;
       }
 
       &_name {

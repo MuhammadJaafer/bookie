@@ -2,6 +2,7 @@
 @use "./Animations.scss" as ani;
 
 .footer {
+  overflow: hidden;
   width: calc(100% + 10rem);
   padding: 0 5rem;
   margin: 0 -5rem;

@@ -1,15 +1,71 @@
-import React from "react";
-import UI from "../../styles/UI.module.scss";
-import styles from "../../styles/Footer.module.scss";
+"use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import React from "react";
+import styles from "../../styles/Footer.module.scss";
+import UI from "../../styles/UI.module.scss";
 type FooterProps = {};
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delay: 0.3,
+      when: "beforeChildren",
+      staggerChildren: 0.35,
+    },
+  },
+};
+const children1Variants = {
+  hidden: {
+    x: -30,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 12,
+    },
+  },
+};
+const children2Variants = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 12,
+    },
+  },
+};
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <div className={`${styles.footer}`}>
-      <h2 className={`${styles.footer_title}`}>bookie</h2>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView={"visible"}
+      viewport={{ once: true, amount: 0.6 }}
+      className={`${styles.footer}`}
+    >
+      <motion.h2
+        variants={children1Variants}
+        className={`${styles.footer_title}`}
+      >
+        bookie
+      </motion.h2>
       <div className={`${styles.footer_container}`}>
-        <div className={`${styles.footer_container_block}`}>
+        <motion.div
+          variants={children1Variants}
+          className={`${styles.footer_container_block}`}
+        >
           <h3 className={`${styles.footer_container_block_title}`}>Company</h3>
           <ul className={`${styles.footer_container_block_list}`}>
             <Link href={"/about"}>
@@ -18,8 +74,11 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
             </Link>
           </ul>
-        </div>
-        <div className={`${styles.footer_container_block}`}>
+        </motion.div>
+        <motion.div
+          variants={children1Variants}
+          className={`${styles.footer_container_block}`}
+        >
           <h3 className={`${styles.footer_container_block_title}`}>Books</h3>
           <ul className={`${styles.footer_container_block_list}`}>
             <Link href={"/books"}>
@@ -38,8 +97,11 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
             </Link>
           </ul>
-        </div>
-        <div className={`${styles.footer_container_block}`}>
+        </motion.div>
+        <motion.div
+          variants={children1Variants}
+          className={`${styles.footer_container_block}`}
+        >
           <h3 className={`${styles.footer_container_block_title}`}>
             follow us
           </h3>
@@ -60,8 +122,11 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
             </a>
           </ul>
-        </div>
-        <div className={`${styles.footer_container_block}`}>
+        </motion.div>
+        <motion.div
+          variants={children1Variants}
+          className={`${styles.footer_container_block}`}
+        >
           <h3 className={`${styles.footer_container_block_title}`}>
             contact us
           </h3>
@@ -85,15 +150,18 @@ const Footer: React.FC<FooterProps> = () => {
               send
             </button>
           </form>
-        </div>
+        </motion.div>
       </div>
-      <div className={`${styles.footer_copyRight}`}>
+      <motion.div
+        variants={children2Variants}
+        className={`${styles.footer_copyRight}`}
+      >
         <div className={`${styles.footer_copyRight_line}`}></div>
         <div className={`${styles.footer_copyRight_text}`}>
           bookie, Inc 2023
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 export default Footer;

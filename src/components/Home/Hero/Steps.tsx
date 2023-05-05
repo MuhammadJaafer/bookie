@@ -1,21 +1,57 @@
-import React from "react";
-import UI from "../../../styles/UI.module.scss";
-import styles from "../../../styles/Home.module.scss";
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import React, { createRef, useRef } from "react";
 import num1 from "../../../../public/images/blob1.svg";
 import num2 from "../../../../public/images/blob2.svg";
 import num3 from "../../../../public/images/blob3.svg";
+import styles from "../../../styles/Home.module.scss";
+import UI from "../../../styles/UI.module.scss";
 
 type StepsProps = {};
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delay: 0.2,
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    },
+  },
+};
+const childrenVariants = {
+  hidden: {
+    x: 30,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 12,
+    },
+  },
+};
 const Steps: React.FC<StepsProps> = () => {
   return (
     <div className={`${styles.steps}`}>
       <h1 className={`${styles.steps_title}`}>
         Three Steps to Your Next Read !
       </h1>
-      <div className={`${styles.steps_list}`}>
-        <div className={`${styles.steps_list_item}`}>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView={"visible"}
+        viewport={{ once: true, amount: 0.6 }}
+        className={`${styles.steps_list}`}
+      >
+        <motion.div
+          variants={childrenVariants}
+          className={`${styles.steps_list_item}`}
+        >
           <Image
             className={`${styles.steps_list_item_img}`}
             src={num1}
@@ -27,8 +63,11 @@ const Steps: React.FC<StepsProps> = () => {
             book you want to order. We offer a vast selection of titles and
             genres to choose from.
           </p>
-        </div>
-        <div className={`${styles.steps_list_item}`}>
+        </motion.div>
+        <motion.div
+          variants={childrenVariants}
+          className={`${styles.steps_list_item}`}
+        >
           <Image
             className={`${styles.steps_list_item_img}`}
             src={num2}
@@ -40,8 +79,11 @@ const Steps: React.FC<StepsProps> = () => {
             shopping cart. You can continue shopping or proceed to checkout when
             you&apos;re ready.
           </p>
-        </div>
-        <div className={`${styles.steps_list_item}`}>
+        </motion.div>
+        <motion.div
+          variants={childrenVariants}
+          className={`${styles.steps_list_item}`}
+        >
           <Image
             className={`${styles.steps_list_item_img}`}
             src={num3}
@@ -55,8 +97,8 @@ const Steps: React.FC<StepsProps> = () => {
             confirmed, we&apos;ll handle the rest and ship your book to your
             doorstep. Enjoy your new read!
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { ReactElement, useEffect } from "react";
 import styles from "../../../styles/Home.module.scss";
 export const revalidate = 3600;
+
 async function BookMonth(): Promise<ReactElement<any, any>> {
   const data = await client.fetch(`*[ _type == "book_of_the_month"][0]`);
   if (!data) return <></>;
@@ -19,7 +20,10 @@ async function BookMonth(): Promise<ReactElement<any, any>> {
           </div>
         </div>
         <div className={`${styles.book_right}`}>
-          <div className={`${styles.book_right_container}`}>
+          <div
+            style={{ background: background_color }}
+            className={`${styles.book_right_container}`}
+          >
             <Image
               className={`${styles.book_right_container_img}`}
               src={urlFor(image).url()}

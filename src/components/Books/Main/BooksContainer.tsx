@@ -46,29 +46,36 @@ const BooksContainer: React.FC<BooksContainerProps> = () => {
   }, []);
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className={`${styles.main_booksContainer}`}
-    >
-      {loading &&
-        loadingBooks.map((book, i) => (
-          <motion.div
-            variants={childrenVariants}
-            key={i}
-            className={`${UI.loadingBook}`}
-          >
-            <div className={`${UI.loadingBook_img}`}></div>
-          </motion.div>
-        ))}
-      {data &&
-        data.map((book: any) => (
-          <motion.div variants={childrenVariants} key={book._id}>
-            <Book book={book} />
-          </motion.div>
-        ))}
-    </motion.div>
+    <>
+      {loading && (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className={`${styles.main_booksContainer}`}
+        >
+          {loadingBooks.map((book, i) => (
+            <div key={i} className={`${UI.loadingBook}`}>
+              <div className={`${UI.loadingBook_img}`}></div>
+            </div>
+          ))}
+        </motion.div>
+      )}
+      {data && (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className={`${styles.main_booksContainer}`}
+        >
+          {data.map((book: any) => (
+            <motion.div variants={childrenVariants} key={book._id}>
+              <Book book={book} />
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
+    </>
   );
 };
 export default BooksContainer;

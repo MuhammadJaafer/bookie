@@ -1,10 +1,10 @@
+import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
+import Modals from "@/components/modal/Modals";
 import Providers from "@/providers/providers";
 import localFont from "@next/font/local";
-import styles from "../styles/MainLayout.module.scss";
-import Modals from "@/components/modal/Modals";
 import "../styles/GlobalStyles.scss";
-import Footer from "@/components/Footer/Footer";
+import styles from "../styles/MainLayout.module.scss";
 const gilmer = localFont({
   src: [
     {

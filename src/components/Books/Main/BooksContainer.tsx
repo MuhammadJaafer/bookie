@@ -9,6 +9,7 @@ import { FaStar } from "react-icons/fa";
 import styles from "../../../styles/Books.module.scss";
 import UI from "../../../styles/UI.module.scss";
 
+import useBooks from "@/hooks/useBooks";
 import Book from "./Book";
 type BooksContainerProps = {};
 const containerVariants = {
@@ -37,13 +38,7 @@ const childrenVariants = {
 };
 const loadingBooks = new Array(12).fill(1);
 const BooksContainer: React.FC<BooksContainerProps> = () => {
-  const { Fetch, data, loading, error } = useSanityFetch();
-  useEffect(() => {
-    const getData = async () => {
-      await Fetch(`*[ _type== "product" ]`);
-    };
-    getData();
-  }, []);
+  const { loading, error, currentView } = useBooks();
 
   return (
     <>
@@ -61,14 +56,14 @@ const BooksContainer: React.FC<BooksContainerProps> = () => {
           ))}
         </motion.div>
       )}
-      {data && (
+      {currentView && (
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className={`${styles.main_booksContainer}`}
         >
-          {data.map((book: any) => (
+          {currentView.map((book: any) => (
             <motion.div variants={childrenVariants} key={book._id}>
               <Book book={book} />
             </motion.div>

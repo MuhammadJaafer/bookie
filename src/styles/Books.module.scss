@@ -9,6 +9,10 @@
 }
 .main {
   width: 75%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   &_search {
     width: 100%;
     position: relative;
@@ -36,10 +40,12 @@
   &_booksContainer {
     width: 100%;
     display: grid;
+    min-height: 112vh;
     margin: 1rem 0;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     align-items: center;
     justify-items: center;
+    align-content: start;
     row-gap: 4rem;
 
     &_book {
@@ -221,6 +227,35 @@
         font-size: 1.3rem;
         color: rgba(var.$color-grey-dark, 0.9);
       }
+    }
+  }
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    &_icon {
+      & svg {
+        width: 3.5rem;
+        height: 3.5rem;
+        vertical-align: middle;
+      }
+    }
+    &_number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      background: var.$color-grey-dark;
+      border-radius: 50%;
+      color: var.$color-white;
     }
   }
 }

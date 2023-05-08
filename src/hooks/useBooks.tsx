@@ -3,21 +3,29 @@ import {
   Book,
   nextPage,
   prevPage,
+  resetPage,
   setAllBooks,
   setCurrentView,
+  setInitialBooks,
 } from "@/redux/features/Books/BooksSlice";
+import { resetFilter } from "@/redux/features/Filter/FilterSlice";
 import { RootState } from "@/redux/store/store";
 import React, { useEffect, useState } from "react";
+import { BsCloudLightning } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import useSanityFetch from "./useSanityFetch";
 
 const useBooks = () => {
   const { Fetch, data, loading, error } = useSanityFetch();
   const dispatch = useDispatch();
+  const Filter = useSelector((state: RootState) => state.Filter);
   const currentView = useSelector(
     (state: RootState) => state.Books.currentView
   );
   const allBooks = useSelector((state: RootState) => state.Books.allBooks);
+  const initialBooks = useSelector(
+    (state: RootState) => state.Books.initialBooks
+  );
   const currentPage = useSelector(
     (state: RootState) => state.Books.currentPage
   );
@@ -51,6 +59,7 @@ const useBooks = () => {
         };
       });
       dispatch(setAllBooks(allBooks));
+      dispatch(setInitialBooks(allBooks));
     }
   }, [data]);
 
@@ -77,6 +86,33 @@ const useBooks = () => {
     }
   };
 
+  const HandleResetFilter = () => {
+    dispatch(resetFilter());
+    dispatch(setAllBooks(initialBooks));
+    dispatch(resetPage());
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const HandleApplyFilter = () => {
+    const filteredBooks = initialBooks.filter((book) => {
+      if (
+        //category filter
+        (book.category === Filter.category || Filter.category === "all") &&
+        //rate filter
+        book.rating >= Filter.rate &&
+        //price filter
+        book.price > Filter.priceRange[0] &&
+        book.price < Filter.priceRange[1] &&
+        //format filter
+        (book.format === Filter.format || Filter.format === "all")
+      ) {
+        return true;
+      }
+    });
+    dispatch(setAllBooks(filteredBooks));
+    dispatch(resetPage());
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return {
     loading,
     error,
@@ -84,6 +120,8 @@ const useBooks = () => {
     HandleNextPage,
     HandlePrevPage,
     currentPage,
+    HandleApplyFilter,
+    HandleResetFilter,
   };
 };
 export default useBooks;

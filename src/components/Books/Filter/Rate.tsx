@@ -1,7 +1,10 @@
 "use client";
+import { setRate } from "@/redux/features/Filter/FilterSlice";
+import { RootState } from "@/redux/store/store";
 import { motion } from "framer-motion";
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../../../styles/Books.module.scss";
 type RateProps = {};
 const containerVariants = {
@@ -43,6 +46,8 @@ const stars = [
   [1, 0, 0, 0, 0],
 ];
 const Rate: React.FC<RateProps> = () => {
+  const dispatch = useDispatch();
+  const currentRate = useSelector((state: RootState) => state.Filter.rate);
   return (
     <motion.div
       variants={containerVariants}
@@ -62,7 +67,14 @@ const Rate: React.FC<RateProps> = () => {
               originX: 0,
             }}
             key={i}
-            className={`${styles.filter_rate_starsContainer_stars}`}
+            className={`${styles.filter_rate_starsContainer_stars} ${
+              currentRate == 5 - i
+                ? styles.filter_rate_starsContainer_stars_active
+                : ""
+            }`}
+            onClick={() => {
+              dispatch(setRate(5 - i));
+            }}
           >
             {set.map((star, j) => {
               if (star) {

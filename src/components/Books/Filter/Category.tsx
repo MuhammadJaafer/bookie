@@ -1,6 +1,9 @@
 "use client";
+import { setCategory } from "@/redux/features/Filter/FilterSlice";
+import { RootState } from "@/redux/store/store";
 import { motion } from "framer-motion";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../../../styles/Books.module.scss";
 
 type CategoryProps = {};
@@ -48,6 +51,11 @@ const childrenVariants = {
   },
 };
 const Category: React.FC<CategoryProps> = () => {
+  const currentCategory = useSelector(
+    (state: RootState) => state.Filter.category
+  );
+
+  const dispatch = useDispatch();
   return (
     <motion.div
       variants={containerVariants}
@@ -60,15 +68,22 @@ const Category: React.FC<CategoryProps> = () => {
             variants={childrenVariants}
             whileHover={{
               scale: 1.15,
-              color: "#1c1c1c",
+
               originX: 0,
             }}
             whileTap={{
               scale: 0.95,
               originX: 0,
             }}
-            className={`${styles.filter_categories_item}`}
+            className={`${styles.filter_categories_item} ${
+              currentCategory === category
+                ? styles.filter_categories_item_active
+                : ""
+            } `}
             key={category}
+            onClick={() => {
+              dispatch(setCategory(category));
+            }}
           >
             {category}
           </motion.li>

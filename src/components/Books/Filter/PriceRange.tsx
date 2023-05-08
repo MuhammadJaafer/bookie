@@ -1,6 +1,9 @@
 "use client";
+import { setPriceRange } from "@/redux/features/Filter/FilterSlice";
+import { RootState } from "@/redux/store/store";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ReactSlider from "react-slider";
 import styles from "../../../styles/Books.module.scss";
 import "../../../styles/special/slider.scss";
@@ -38,8 +41,11 @@ const childrenVariants = {
 };
 
 const PriceRange: React.FC<PriceRangeProps> = () => {
-  const [max, setMax] = useState(70);
-  const [min, setMin] = useState(5);
+  const dispatch = useDispatch();
+  const currentPrice = useSelector(
+    (state: RootState) => state.Filter.priceRange
+  );
+
   return (
     <motion.div
       variants={containerVariants}
@@ -51,7 +57,7 @@ const PriceRange: React.FC<PriceRangeProps> = () => {
           className="horizontal-slider"
           thumbClassName="thumb"
           trackClassName="track"
-          defaultValue={[min, max]}
+          defaultValue={currentPrice}
           min={0}
           max={150}
           ariaLabel={["Lower thumb", "Upper thumb"]}
@@ -60,13 +66,16 @@ const PriceRange: React.FC<PriceRangeProps> = () => {
           pearling
           minDistance={20}
           onChange={(val) => {
-            setMin(val[0]);
-            setMax(val[1]);
+            dispatch(setPriceRange(val));
           }}
         />
         <div className={`${styles.filter_price_values}`}>
-          <div className={`${styles.filter_price_values_min}`}>{min}JD</div>
-          <div className={`${styles.filter_price_values_max}`}>{max}JD</div>
+          <div className={`${styles.filter_price_values_min}`}>
+            {currentPrice[0]}JD
+          </div>
+          <div className={`${styles.filter_price_values_max}`}>
+            {currentPrice[1]}JD
+          </div>
         </div>
       </motion.div>
     </motion.div>

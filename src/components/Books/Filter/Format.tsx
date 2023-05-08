@@ -1,7 +1,10 @@
 "use client";
-
+const format = ["all", "hardcover", "paperback", "e-book", "audiobook"];
+import { setFormat } from "@/redux/features/Filter/FilterSlice";
+import { RootState } from "@/redux/store/store";
 import { motion } from "framer-motion";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../../../styles/Books.module.scss";
 type FormatProps = {};
 const containerVariants = {
@@ -36,6 +39,9 @@ const childrenVariants = {
   },
 };
 const Format: React.FC<FormatProps> = () => {
+  const currentFormat = useSelector((state: RootState) => state.Filter.format);
+
+  const dispatch = useDispatch();
   return (
     <motion.div
       variants={containerVariants}
@@ -43,66 +49,32 @@ const Format: React.FC<FormatProps> = () => {
     >
       <h2 className={`${styles.filter_format_title}`}>Format</h2>
       <ul className={`${styles.filter_format_list}`}>
-        <motion.li
-          variants={childrenVariants}
-          whileHover={{
-            scale: 1.15,
-            color: "#1c1c1c",
-            originX: 0,
-          }}
-          whileTap={{
-            scale: 0.95,
-            originX: 0,
-          }}
-          className={`${styles.filter_format_list_item}`}
-        >
-          HardCover
-        </motion.li>
-        <motion.li
-          variants={childrenVariants}
-          whileHover={{
-            scale: 1.15,
-            color: "#1c1c1c",
-            originX: 0,
-          }}
-          whileTap={{
-            scale: 0.95,
-            originX: 0,
-          }}
-          className={`${styles.filter_format_list_item}`}
-        >
-          Paperback
-        </motion.li>
-        <motion.li
-          variants={childrenVariants}
-          whileHover={{
-            scale: 1.15,
-            color: "#1c1c1c",
-            originX: 0,
-          }}
-          whileTap={{
-            scale: 0.95,
-            originX: 0,
-          }}
-          className={`${styles.filter_format_list_item}`}
-        >
-          E-Book
-        </motion.li>
-        <motion.li
-          variants={childrenVariants}
-          whileHover={{
-            scale: 1.15,
-            color: "#1c1c1c",
-            originX: 0,
-          }}
-          whileTap={{
-            scale: 0.95,
-            originX: 0,
-          }}
-          className={`${styles.filter_format_list_item}`}
-        >
-          AudioBook
-        </motion.li>
+        {format.map((item) => {
+          return (
+            <motion.li
+              key={item}
+              variants={childrenVariants}
+              whileHover={{
+                scale: 1.15,
+                originX: 0,
+              }}
+              whileTap={{
+                scale: 0.95,
+                originX: 0,
+              }}
+              className={`${styles.filter_format_list_item} ${
+                currentFormat === item
+                  ? styles.filter_format_list_item_active
+                  : ""
+              }`}
+              onClick={() => {
+                dispatch(setFormat(item));
+              }}
+            >
+              {item}
+            </motion.li>
+          );
+        })}
       </ul>
     </motion.div>
   );

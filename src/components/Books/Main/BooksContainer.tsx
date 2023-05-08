@@ -56,7 +56,7 @@ const BooksContainer: React.FC<BooksContainerProps> = () => {
           ))}
         </motion.div>
       )}
-      {currentView && (
+      {!loading && currentView.length > 0 && (
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -68,6 +68,18 @@ const BooksContainer: React.FC<BooksContainerProps> = () => {
               <Book book={book} />
             </motion.div>
           ))}
+        </motion.div>
+      )}
+      {!loading && currentView.length < 1 && (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className={`${styles.main_booksContainer}`}
+        >
+          <div className={`${styles.main_booksContainer_noData}`}>
+            No Books :( <br /> Try different filter setting
+          </div>
         </motion.div>
       )}
     </>

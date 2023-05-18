@@ -255,16 +255,30 @@
   flex-direction: column;
   position: relative;
   // overflow: hidden;
+  @media screen and (max-width: 800px) {
+    height: fit-content;
+    max-height: fit-content;
+    gap: 2rem;
+  }
   &_text {
     width: 100%;
     padding: 10rem 3rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    @media screen and (max-width: 1300px) {
+      padding: 5rem 3rem;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
     &_title {
       font-size: 7rem;
       width: 100%;
       max-width: 60rem;
+      @media screen and (max-width: 800px) {
+        font-size: 6rem;
+      }
     }
     &_para {
       color: rgba(var.$color-grey-dark, 0.6);
@@ -284,6 +298,21 @@
     gap: 2rem;
     z-index: 2;
     align-items: center;
+    @media screen and (max-width: 1300px) {
+      width: 30rem;
+    }
+    @media screen and (max-width: 800px) {
+      position: relative;
+      top: auto;
+      right: auto;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: fit-content;
+      padding: 0 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   &_footer {
     width: 100%;
@@ -353,11 +382,19 @@
   gap: 2rem;
   width: 100%;
   padding: 0 4rem;
+  @media screen and (max-width: 800px) {
+    width: calc(100% + 10rem);
+    margin: 0 -5rem;
+    padding: 0;
+  }
   &_title {
     font-size: 4rem;
     font-family: var(--font-crafter);
     font-weight: 400;
     text-transform: uppercase;
+    @media screen and (max-width: 800px) {
+      margin-left: 2rem;
+    }
   }
   &_main {
     width: 100%;
@@ -371,8 +408,13 @@
       display: flex;
       justify-content: space-between;
       padding: 0 1rem;
+      @media screen and (max-width: 800px) {
+        justify-content: space-evenly;
+      }
     }
     &_left {
+      position: relative;
+      z-index: 2;
       cursor: pointer;
       margin-left: -7rem;
       background: rgba(var.$color-grey-dark, 0.85);
@@ -387,8 +429,18 @@
       &:hover {
         background: rgba(var.$color-grey-dark, 0.8);
       }
+      @media screen and (max-width: 800px) {
+        margin-left: 2rem;
+        padding: 0.5rem;
+        & svg {
+          width: 3rem;
+          height: 3rem;
+        }
+      }
     }
     &_right {
+      position: relative;
+      z-index: 2;
       cursor: pointer;
       margin-right: -7rem;
       background: rgba(var.$color-grey-dark, 0.85);
@@ -402,6 +454,14 @@
       }
       &:hover {
         background: rgba(var.$color-grey-dark, 0.8);
+      }
+      @media screen and (max-width: 800px) {
+        margin-right: 2rem;
+        padding: 0.5rem;
+        & svg {
+          width: 3rem;
+          height: 3rem;
+        }
       }
     }
   }

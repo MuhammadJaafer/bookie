@@ -15,6 +15,7 @@ type CarouselProps = {
 };
 
 const Carousel: React.FC<CarouselProps> = ({ data, title }) => {
+  const [width, setWidth] = useState(window.innerWidth);
   const [all, setAll] = useState(data);
   const [viewNumber, setViewNumber] = useState(Math.min(4, all.length));
   const [counter, setCounter] = useState(0);
@@ -33,9 +34,29 @@ const Carousel: React.FC<CarouselProps> = ({ data, title }) => {
     }
     setCounter((prev) => prev - 1);
   };
+
   useEffect(() => {
     setView(all.slice(counter, viewNumber + counter));
   }, [all, counter, viewNumber]);
+
+  // to change the current window width
+  useEffect(() => {
+    const changeWidth = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", changeWidth);
+    if (width < 800) {
+      setViewNumber(Math.min(2, all.length));
+    } else if (width < 1000) {
+      setViewNumber(Math.min(3, all.length));
+    } else if (width > 1000) {
+      setViewNumber(Math.min(4, all.length));
+    }
+    setView(all.slice(counter, viewNumber + counter));
+
+    console.log(width, viewNumber, view);
+    return () => window.removeEventListener("resize", changeWidth);
+  }, [all.length, viewNumber, width]);
   return (
     <div className={`${styles.featured}`}>
       <h2 className={`${styles.featured_title}`}>{title}</h2>

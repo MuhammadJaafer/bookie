@@ -39,7 +39,7 @@ const Steps: React.FC<StepsProps> = () => {
   return (
     <div className={`${styles.steps}`}>
       <h1 className={`${styles.steps_title}`}>
-        Three Steps to Your Next Read !
+        Three Steps to Your Next Read!
       </h1>
       <motion.div
         variants={containerVariants}

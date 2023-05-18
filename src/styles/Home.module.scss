@@ -18,6 +18,11 @@
     rgba(109, 146, 189, 0.6) 100%
   );
   border-radius: 3rem;
+  @media screen and (max-width: 800px) {
+    width: calc(100% + 10rem);
+    margin: 1rem -5rem 4rem -5rem;
+    border-radius: 1rem;
+  }
   &_text {
     height: 100%;
     width: 100%;
@@ -29,17 +34,30 @@
     gap: 1rem;
     position: relative;
     z-index: 2;
+    @media screen and (max-width: 800px) {
+      gap: 2rem;
+    }
     h1 {
       font-family: var(--font-crafter);
       font-weight: 400;
       color: var.$color-grey-dark;
-      font-size: 11rem;
+      font-size: 11.2rem;
+      @media screen and (max-width: 800px) {
+        font-size: 8rem;
+      }
     }
     h4 {
       color: rgba(var.$color-grey-dark, 0.6);
       font-weight: 400;
       font-size: 2rem;
       max-width: 70rem;
+      @media screen and (max-width: 800px) {
+        font-size: 1.7rem;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 1.5rem;
+        padding: 0 2rem;
+      }
     }
   }
 
@@ -53,6 +71,11 @@
     z-index: 1;
     background: #f1abab;
     filter: blur(200px);
+    @media screen and (max-width: 1000px) {
+      height: 30rem;
+      width: 40rem;
+      filter: blur(90px);
+    }
   }
   &_circle2 {
     position: absolute;
@@ -64,6 +87,11 @@
     z-index: 1;
     background: #ecf1ab;
     filter: blur(250px);
+    @media screen and (max-width: 1000px) {
+      height: 30rem;
+      width: 40rem;
+      filter: blur(100px);
+    }
   }
 }
 
@@ -78,6 +106,10 @@
   justify-content: center;
   gap: 10rem;
   margin-bottom: 5rem;
+  @media screen and (max-width: 800px) {
+    width: calc(100% + 10rem);
+    margin: 5rem -5rem;
+  }
   &_title {
     width: 100%;
     font-size: 7rem;
@@ -88,7 +120,12 @@
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-
+    align-items: center;
+    @media screen and (max-width: 800px) {
+      justify-content: center;
+      flex-direction: column;
+      gap: 3rem;
+    }
     &_item {
       width: 100%;
       max-width: 35rem;
@@ -98,6 +135,10 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      @media screen and (max-width: 800px) {
+        max-width: 50rem;
+        padding: 0 3rem;
+      }
       &_img {
         width: 12rem;
         height: 12rem;

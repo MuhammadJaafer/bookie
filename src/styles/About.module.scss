@@ -6,7 +6,53 @@
   width: calc(100% + 10rem);
   margin: 0 -5rem;
 }
-
+.aboutUs {
+  width: 100%;
+  height: 90vh;
+  max-height: 110rem;
+  min-height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  &_left {
+    width: 100%;
+    height: 100%;
+    background: var.$color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &_title {
+      font-size: 6rem;
+      font-family: var(--font-crafter);
+      font-weight: 400;
+      white-space: nowrap;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      color: var.$color-white;
+    }
+  }
+  &_mid {
+    width: 100%;
+    height: 100%;
+    background: var.$color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 6rem;
+    &_para {
+      font-weight: 400;
+      font-size: 2rem;
+      color: rgba(var.$color-grey-dark, 0.9);
+    }
+  }
+  &_right {
+    width: 100%;
+    height: 100%;
+    background: #6bb4da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .ourStory {
   width: 100%;
   height: 90vh;

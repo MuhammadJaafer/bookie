@@ -5,6 +5,15 @@
 }
 html {
   font-size: 62.5%;
+  @media screen and (max-width: 1000px) {
+    font-size: 50%;
+  }
+  @media screen and (max-width: 800px) {
+    font-size: 45%;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 40%;
+  }
 }
 
 html,

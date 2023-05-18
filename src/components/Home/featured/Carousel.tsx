@@ -15,7 +15,7 @@ type CarouselProps = {
 };
 
 const Carousel: React.FC<CarouselProps> = ({ data, title }) => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState<number>(1200);
   const [all, setAll] = useState(data);
   const [viewNumber, setViewNumber] = useState(Math.min(4, all.length));
   const [counter, setCounter] = useState(0);

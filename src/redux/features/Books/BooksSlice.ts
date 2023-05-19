@@ -19,8 +19,10 @@ export interface BooksState {
   initialBooks: Book[];
   allBooks: Book[];
   currentPage: number;
+  numberOfPages: number;
   currentView: Book[];
   viewNumber: number;
+
   currentBook: Book | null;
 }
 
@@ -28,6 +30,7 @@ const initialState: BooksState = {
   initialBooks: [],
   allBooks: [],
   currentPage: 1,
+  numberOfPages: 1,
   viewNumber: 8,
   currentView: [],
   currentBook: null,
@@ -61,6 +64,9 @@ export const BooksSlice = createSlice({
     resetPage: (state) => {
       state.currentPage = 1;
     },
+    setNumberOfPages: (state, action) => {
+      state.numberOfPages = action.payload;
+    },
   },
 });
 
@@ -73,5 +79,6 @@ export const {
   changeViewNumber,
   setInitialBooks,
   resetPage,
+  setNumberOfPages,
 } = BooksSlice.actions;
 export default BooksSlice.reducer;

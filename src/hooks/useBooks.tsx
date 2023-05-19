@@ -7,6 +7,7 @@ import {
   setAllBooks,
   setCurrentView,
   setInitialBooks,
+  setNumberOfPages,
 } from "@/redux/features/Books/BooksSlice";
 import { resetFilter } from "@/redux/features/Filter/FilterSlice";
 import { RootState } from "@/redux/store/store";
@@ -21,6 +22,9 @@ const useBooks = () => {
   const Filter = useSelector((state: RootState) => state.Filter);
   const currentView = useSelector(
     (state: RootState) => state.Books.currentView
+  );
+  const numberOfPages = useSelector(
+    (state: RootState) => state.Books.numberOfPages
   );
   const allBooks = useSelector((state: RootState) => state.Books.allBooks);
   const initialBooks = useSelector(
@@ -70,6 +74,7 @@ const useBooks = () => {
       const start = (currentPage - 1) * viewNumber;
       const currentView = allBooks.slice(start, end);
       dispatch(setCurrentView(currentView));
+      dispatch(setNumberOfPages(Math.ceil(allBooks.length / viewNumber)));
     }
   }, [allBooks, currentPage, viewNumber, currentPage]);
 
@@ -90,6 +95,7 @@ const useBooks = () => {
     dispatch(resetFilter());
     dispatch(setAllBooks(initialBooks));
     dispatch(resetPage());
+    dispatch(setNumberOfPages(Math.ceil(allBooks.length / viewNumber)));
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const HandleApplyFilter = () => {
@@ -110,6 +116,7 @@ const useBooks = () => {
     });
     dispatch(setAllBooks(filteredBooks));
     dispatch(resetPage());
+    dispatch(setNumberOfPages(Math.ceil(allBooks.length / viewNumber)));
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -122,6 +129,7 @@ const useBooks = () => {
     currentPage,
     HandleApplyFilter,
     HandleResetFilter,
+    numberOfPages,
   };
 };
 export default useBooks;

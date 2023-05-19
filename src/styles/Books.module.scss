@@ -293,15 +293,24 @@
         cursor: pointer;
       }
     }
-    &_number {
+    &_numbers {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 3rem;
-      height: 3rem;
-      background: var.$color-grey-dark;
-      border-radius: 50%;
-      color: var.$color-white;
+      gap: 1rem;
+      background: var.$color-white-dark2;
+      border-radius: 4rem;
+      padding: 0.5rem 2rem;
+      &_mainNumber {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        background: var.$color-grey-dark;
+        border-radius: 3rem;
+        color: var.$color-white;
+      }
     }
   }
 }

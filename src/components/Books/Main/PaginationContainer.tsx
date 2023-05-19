@@ -7,8 +7,9 @@ import styles from "../../../styles/Books.module.scss";
 type PaginationContainerProps = {};
 
 const PaginationContainer: React.FC<PaginationContainerProps> = () => {
-  const { currentPage, HandleNextPage, HandlePrevPage } = useBooks();
-
+  const { numberOfPages, currentPage, HandleNextPage, HandlePrevPage } =
+    useBooks();
+  console.log(numberOfPages);
   return (
     <div className={`${styles.pagination}`}>
       <div className={`${styles.pagination_container}`}>
@@ -20,8 +21,20 @@ const PaginationContainer: React.FC<PaginationContainerProps> = () => {
         >
           <FiChevronLeft />
         </div>
-        <div className={`${styles.pagination_container_number}`}>
-          {currentPage}
+        <div className={`${styles.pagination_container_numbers}`}>
+          {currentPage > 1 && (
+            <div className={`${styles.pagination_container_numbers_subNumber}`}>
+              {currentPage - 1}
+            </div>
+          )}
+          <div className={`${styles.pagination_container_numbers_mainNumber}`}>
+            {currentPage}
+          </div>
+          {currentPage < numberOfPages && (
+            <div className={`${styles.pagination_container_numbers_subNumber}`}>
+              {currentPage + 1}
+            </div>
+          )}
         </div>
         <div
           className={`${styles.pagination_container_icon}`}

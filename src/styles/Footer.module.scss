@@ -20,8 +20,13 @@
   }
   &_container {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: space-between;
+    @media screen and (max-width: 800px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
     &_block {
       display: flex;
       flex-direction: column;
@@ -65,6 +70,9 @@
           padding: 0.5rem;
           color: rgba(var.$color-white, 0.6);
           resize: none;
+          @media screen and (max-width: 800px) {
+            width: 100%;
+          }
           &:focus {
             outline: none;
           }

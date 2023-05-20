@@ -39,7 +39,6 @@ const childrenVariants = {
 const loadingBooks = new Array(12).fill(1);
 const BooksContainer: React.FC<BooksContainerProps> = () => {
   const { loading, error, currentView } = useBooks();
-
   return (
     <>
       {loading && (

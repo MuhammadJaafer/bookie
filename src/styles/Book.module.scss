@@ -1,0 +1,156 @@
+@use "./abstracts/variablies" as var;
+
+.mainContainer {
+  width: calc(100% + 10rem);
+  margin: 0 -5rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr;
+  height: 100%;
+  overflow: hidden;
+  max-height: 100rem;
+  &_left {
+    background: var.$color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 0;
+    &_bookContainer {
+      margin-left: auto;
+      width: 25rem;
+      min-height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      &_image {
+      }
+      &_name {
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
+      &_buyBtn {
+        position: relative;
+        background: var.$color-grey-dark;
+        color: var.$color-white;
+        text-align: center;
+        font-weight: 500;
+        font-family: inherit;
+        border: none;
+        border-radius: 1rem;
+        padding: 1.2rem 3rem;
+        font-size: 2rem;
+        cursor: pointer;
+        & svg {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          vertical-align: middle;
+          width: 3rem;
+          height: 3rem;
+        }
+      }
+      &_addBtn {
+        border: 3px solid var.$color-grey-dark;
+        border-radius: 1rem;
+        font-size: 2rem;
+        padding: 1.2rem 3rem;
+        text-align: center;
+        font-weight: 500;
+        font-family: inherit;
+        background: transparent;
+        color: var.$color-grey-dark;
+        cursor: pointer;
+      }
+    }
+    &_menuContainer {
+      margin-left: auto;
+      height: fit-content;
+      min-height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &_menu {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+        align-items: center;
+        justify-content: space-between;
+        &_item {
+          cursor: pointer;
+          font-size: 2rem;
+          font-weight: 600;
+          white-space: nowrap;
+          writing-mode: vertical-lr;
+          transform: rotate(180deg);
+          color: var.$color-grey-dark;
+          padding: 1rem;
+          &_active {
+            background: var.$color-white;
+            border-radius: 0rem 2rem 2rem 0;
+          }
+        }
+      }
+    }
+  }
+  &_middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 5rem;
+    padding: 1rem 3rem;
+    height: fit-content;
+    &_container {
+      &_title {
+        text-transform: uppercase;
+        color: rgba(var.$color-grey-dark, 0.5);
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+      &_content {
+        font-size: 1.5rem;
+        color: rgba(var.$color-grey-dark, 0.9);
+
+        &_bold {
+          font-size: 4rem;
+          font-family: var(--font-crafter);
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  &_right {
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid rgba(var.$color-grey-dark, 0.5);
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &_title {
+      font-size: 3rem;
+    }
+    &_container {
+      height: 100%;
+      max-height: 70rem;
+      overflow: hidden;
+      overflow-y: scroll;
+      padding: 1rem;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(var.$color-grey-dark, 0.5);
+        border-radius: 1rem;
+        border: none;
+      }
+    }
+  }
+}

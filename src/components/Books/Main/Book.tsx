@@ -1,12 +1,14 @@
 "use client";
 import { urlFor } from "@/cms/client";
+import { Book } from "@/redux/features/Books/BooksSlice";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import styles from "../../../styles/Books.module.scss";
 type BookProps = {
-  book: any;
+  book: Book;
 };
 
 const Book: React.FC<BookProps> = ({ book }) => {
@@ -21,7 +23,7 @@ const Book: React.FC<BookProps> = ({ book }) => {
   });
   return (
     <>
-      <div>
+      <Link href={`/book/${book.id}`}>
         <div className={`${styles.main_booksContainer_book}`}>
           {(book.topTrending || book.newReleases) && (
             <div className={`${styles.main_booksContainer_book_label}`}>
@@ -72,7 +74,7 @@ const Book: React.FC<BookProps> = ({ book }) => {
             })}
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

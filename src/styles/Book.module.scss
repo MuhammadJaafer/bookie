@@ -23,8 +23,13 @@
       gap: 1rem;
       &_image {
         border-radius: 1rem;
+        object-fit: contain;
       }
       &_name {
+        font-size: 1.8rem;
+        font-weight: 400;
+      }
+      &_price {
         font-size: 1.8rem;
         font-weight: 400;
       }

@@ -1,14 +1,24 @@
 import { urlFor } from "@/cms/client";
+import { auth } from "@/firebase/config";
 import useBooks from "@/hooks/useBooks";
+import { ToggleModal } from "@/redux/features/AuthModal/AuthModalSlice";
 import { Book as BookType } from "@/redux/features/Books/BooksSlice";
+import { addToCart } from "@/redux/features/Cart/CartSlice";
+import { RootState } from "@/redux/store/store";
+import Image from "next/image";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { FiChevronRight } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/Book.module.scss";
 import Book from "../Books/Main/Book";
 
 type BookPageProps = { book: any };
 
 const BookPage: React.FC<BookPageProps> = ({ book }) => {
+  const cartState = useSelector((state: RootState) => state.Cart);
+  const dispatch = useDispatch();
+  const [user] = useAuthState(auth);
   const bookData: BookType = {
     id: book._id,
     name: book.name,
@@ -31,20 +41,59 @@ const BookPage: React.FC<BookPageProps> = ({ book }) => {
     <div className={`${styles.mainContainer}`}>
       <div className={`${styles.mainContainer_left}`}>
         <div className={`${styles.mainContainer_left_bookContainer}`}>
-          <img
+          <Image
             className={`${styles.mainContainer_left_bookContainer_image}`}
             src={bookData.image}
             alt="book"
+            width={300}
+            height={400}
           />
           <h3 className={`${styles.mainContainer_left_bookContainer_name}`}>
             {bookData.name}
           </h3>
+          <div className={`${styles.mainContainer_left_bookContainer_price}`}>
+            {bookData.price}$
+          </div>
           <button
+            onClick={() => {
+              if (!user) {
+                dispatch(ToggleModal());
+              } else {
+                dispatch(
+                  addToCart({
+                    id: bookData.id,
+                    name: bookData.name,
+                    image: bookData.image,
+                    format: bookData.format,
+                    quantity: 1,
+                    price: Math.round(bookData.price * 100) / 100,
+                    totalPrice: Math.round(bookData.price * 100) / 100,
+                  })
+                );
+              }
+            }}
             className={`${styles.mainContainer_left_bookContainer_buyBtn}`}
           >
             Buy now <FiChevronRight />
           </button>
           <button
+            onClick={() => {
+              if (!user) {
+                dispatch(ToggleModal());
+              } else {
+                dispatch(
+                  addToCart({
+                    id: bookData.id,
+                    name: bookData.name,
+                    image: bookData.image,
+                    format: bookData.format,
+                    quantity: 1,
+                    price: Math.round(bookData.price * 100) / 100,
+                    totalPrice: Math.round(bookData.price * 100) / 100,
+                  })
+                );
+              }
+            }}
             className={`${styles.mainContainer_left_bookContainer_addBtn}`}
           >
             Add to cart

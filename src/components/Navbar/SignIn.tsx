@@ -1,18 +1,21 @@
 "use client";
+import { auth } from "@/firebase/config";
+import { ToggleModal } from "@/redux/features/AuthModal/AuthModalSlice";
+import { openCart } from "@/redux/features/Cart/CartSlice";
+import { RootState } from "@/redux/store/store";
 import Link from "next/link";
 import React from "react";
-import UI from "../../styles/UI.module.scss";
-import { useDispatch } from "react-redux";
-import { ToggleModal } from "@/redux/features/AuthModal/AuthModalSlice";
-import { auth } from "@/firebase/config";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { FiLoader, FiShoppingCart } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import UI from "../../styles/UI.module.scss";
 type SignInProps = {};
 
 const SignIn: React.FC<SignInProps> = () => {
   const dispatch = useDispatch();
   const [user] = useAuthState(auth);
   const [signOut, loading, error] = useSignOut(auth);
+  const cartState = useSelector((state: RootState) => state.Cart);
   return (
     <>
       {user ? (
@@ -25,8 +28,13 @@ const SignIn: React.FC<SignInProps> = () => {
           >
             {loading ? <FiLoader /> : "Log out"}
           </button>
-          <div className={`${UI.cartIcon}`}>
-            <div>{2}</div>
+          <div
+            onClick={() => {
+              dispatch(openCart());
+            }}
+            className={`${UI.cartIcon}`}
+          >
+            <div>{cartState.numberOfProducts}</div>
             <FiShoppingCart />
           </div>
         </>

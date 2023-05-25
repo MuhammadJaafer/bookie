@@ -1,11 +1,15 @@
 "use client";
 import { urlFor } from "@/cms/client";
+import { auth } from "@/firebase/config";
 import { Book } from "@/redux/features/Books/BooksSlice";
+import { RootState } from "@/redux/store/store";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { FaStar } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../../../styles/Books.module.scss";
 type BookProps = {
   book: Book;
@@ -21,6 +25,7 @@ const Book: React.FC<BookProps> = ({ book }) => {
       stars[i]++;
     }
   });
+
   return (
     <>
       <Link href={`/book/${book.id}`}>

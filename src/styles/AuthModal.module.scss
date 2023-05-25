@@ -1,11 +1,11 @@
 @use "./abstracts/variablies" as var;
-
 .show {
   display: block;
 }
 .hide {
   display: none;
 }
+
 .modal {
   position: absolute;
   z-index: 200;

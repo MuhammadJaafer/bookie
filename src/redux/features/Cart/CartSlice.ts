@@ -16,12 +16,22 @@ export interface CartState {
   numberOfProducts: number;
   open: boolean;
 }
+let initialState: CartState;
 
-const initialState: CartState = {
-  products: [],
-  subtotal: 0,
-  numberOfProducts: 0,
-  open: false,
+if (localStorage.getItem("cartData")) {
+  initialState = JSON.parse(localStorage.getItem("cartData")!);
+  initialState.open = false;
+} else {
+  initialState = {
+    products: [],
+    subtotal: 0,
+    numberOfProducts: 0,
+    open: false,
+  };
+}
+
+const storeDataInLocalStorage = (state: CartState) => {
+  localStorage.setItem("cartData", JSON.stringify(state));
 };
 
 export const CartSlice = createSlice({
@@ -45,6 +55,9 @@ export const CartSlice = createSlice({
       // update the subtotal
       state.subtotal =
         Math.round((action.payload.price + state.subtotal) * 100) / 100;
+
+      //update the local storage
+      storeDataInLocalStorage(state);
     },
     removeFromCart: (state, action) => {
       //get the quantity
@@ -62,6 +75,9 @@ export const CartSlice = createSlice({
       // update the subtotal
       state.subtotal =
         Math.round((state.subtotal - action.payload.totalPrice) * 100) / 100;
+
+      //update the local storage
+      storeDataInLocalStorage(state);
     },
     removeOneFromCart: (state, action) => {
       state.products.forEach((p) => {
@@ -81,6 +97,8 @@ export const CartSlice = createSlice({
       // update the subtotal
       state.subtotal =
         Math.round((state.subtotal - action.payload.price) * 100) / 100;
+      //update the local storage
+      storeDataInLocalStorage(state);
     },
     openCart: (state) => {
       state.open = true;

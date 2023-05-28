@@ -29,7 +29,9 @@ const Item: React.FC<ItemProps> = ({ data }) => {
         height={150}
       />
       <div className={`${styles.cart_items_item_text}`}>
-        <h3 className={`${styles.cart_items_item_text_name}`}>{data.name}</h3>
+        <h3 className={`${styles.cart_items_item_text_name}`}>
+          {data.name.length > 50 ? `${data.name.slice(1, 50)}...` : data.name}
+        </h3>
         <p className={`${styles.cart_items_item_text_format}`}>{data.format}</p>
       </div>
       <div className={`${styles.cart_items_item_button}`}>
@@ -53,7 +55,9 @@ const Item: React.FC<ItemProps> = ({ data }) => {
           <BiMinus />
         </div>
       </div>
-      <div className={`${styles.cart_items_item_price}`}>{data.totalPrice}</div>
+      <div className={`${styles.cart_items_item_price}`}>
+        {data.totalPrice}$
+      </div>
       <div
         onClick={() => {
           dispatch(removeFromCart(data));

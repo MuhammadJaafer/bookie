@@ -226,7 +226,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 10rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
     &_item {
       display: flex;
       flex-direction: column;
@@ -266,6 +266,39 @@
     }
   }
   @media screen and (max-width: 800px) {
+    width: 100%;
+    height: fit-content;
+    max-height: unset;
+    min-height: unset;
+    gap: 5rem;
+    &_title {
+      font-size: 5rem;
+      padding: 2rem 0;
+    }
+    &_container {
+      padding: 0 2rem;
+      padding-bottom: 5rem;
+      gap: 2rem;
+      justify-content: space-evenly;
+      &_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        &_img {
+          width: 18rem;
+          height: 18rem;
+        }
+
+        &_name {
+          font-size: 2rem;
+        }
+        &_role {
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+      }
+    }
   }
 }
 
@@ -276,7 +309,7 @@
   min-height: 80rem;
   display: flex;
   &_left {
-    width: 100%;
+    width: 60%;
     height: 100%;
     background: var.$color-primary;
     color: var.$color-white;
@@ -325,11 +358,74 @@
   }
   &_right {
     height: 100%;
+    width: 40%;
     background: #fffd98;
     padding: 0 8rem;
     display: flex;
     align-items: flex-end;
     & img {
+      width: 100%;
+      height: auto;
+      transform: translateY(20%);
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 70rem;
+    max-height: unset;
+    min-height: unset;
+    &_right {
+      width: 35%;
+      height: 100%;
+      background: #fffd98;
+      padding: 5rem 2rem;
+      display: flex;
+      align-items: center;
+      & img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        transform: translateY(0rem);
+      }
+    }
+    &_left {
+      width: 65%;
+      height: 100%;
+      padding: 5rem 0;
+      gap: 5rem;
+      &_title {
+        font-size: 4rem;
+        text-align: center;
+        margin: 0;
+      }
+      &_container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        gap: 5rem;
+        align-items: flex-start;
+        & a {
+          width: 100%;
+        }
+        &_item {
+          width: 100%;
+          max-width: 30rem;
+          padding: 2rem 1rem;
+          border-radius: 0 2rem 2rem 0;
+          & svg {
+            width: 4.5rem;
+            height: 4.5rem;
+          }
+          &_title {
+            color: var.$color-primary;
+            font-size: 4rem;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    height: 55rem;
   }
 }

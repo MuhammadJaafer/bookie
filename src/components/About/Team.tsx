@@ -35,7 +35,7 @@ const Team: React.FC<TeamProps> = () => {
             Web Developer
           </h4>
         </div>
-        <div className={`${styles.team_container_item}`}>
+        {/* <div className={`${styles.team_container_item}`}>
           <Image
             className={`${styles.team_container_item_img}`}
             src={wisamImage}
@@ -45,7 +45,7 @@ const Team: React.FC<TeamProps> = () => {
           <h4 className={`${styles.team_container_item_role}`}>
             Content Moderator & Developer
           </h4>
-        </div>
+        </div> */}
       </div>
     </div>
   );

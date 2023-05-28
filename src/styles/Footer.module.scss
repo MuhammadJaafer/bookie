@@ -2,6 +2,8 @@
 @use "./Animations.scss" as ani;
 
 .footer {
+  position: relative;
+  z-index: 100;
   overflow: hidden;
   width: calc(100% + 10rem);
   padding: 0 5rem;

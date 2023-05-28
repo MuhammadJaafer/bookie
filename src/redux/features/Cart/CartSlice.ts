@@ -17,17 +17,21 @@ export interface CartState {
   open: boolean;
 }
 let initialState: CartState;
-
-if (localStorage.getItem("cartData")) {
-  initialState = JSON.parse(localStorage.getItem("cartData")!);
-  initialState.open = false;
+const init = {
+  products: [],
+  subtotal: 0,
+  numberOfProducts: 0,
+  open: false,
+};
+if (typeof window !== "undefined") {
+  if (localStorage.getItem("cartData")) {
+    initialState = JSON.parse(localStorage.getItem("cartData")!);
+    initialState.open = false;
+  } else {
+    initialState = init;
+  }
 } else {
-  initialState = {
-    products: [],
-    subtotal: 0,
-    numberOfProducts: 0,
-    open: false,
-  };
+  initialState = init;
 }
 
 const storeDataInLocalStorage = (state: CartState) => {

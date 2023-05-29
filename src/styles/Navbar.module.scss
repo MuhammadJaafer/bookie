@@ -6,12 +6,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  &_right {
+  &_left {
     &_logo {
       font-size: 3.5rem;
     }
   }
-  &_left {
+  &_right {
     display: flex;
     width: 50%;
     max-width: 50rem;
@@ -22,4 +22,42 @@
       font-size: var.$default-font-size;
     }
   }
+  &_menuBtn {
+    width: 4rem;
+    height: 4rem;
+    position: relative;
+    z-index: 500;
+    & svg {
+      width: 100%;
+      height: 100%;
+      color: var.$color-grey-dark;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    &_right {
+      display: none;
+      width: 40rem;
+      height: 100vh;
+      padding: 20rem 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: var.$color-white;
+      flex-direction: column;
+      z-index: 300;
+      &_active {
+        display: flex;
+      }
+    }
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(0.3rem);
+  background: rgba($color: #000000, $alpha: 0.2);
+  z-index: 200;
 }

@@ -9,7 +9,7 @@ import {
   setInitialBooks,
   setNumberOfPages,
 } from "@/redux/features/Books/BooksSlice";
-import { resetFilter } from "@/redux/features/Filter/FilterSlice";
+import { resetFilter, toggleFilter } from "@/redux/features/Filter/FilterSlice";
 import { RootState } from "@/redux/store/store";
 import React, { useEffect, useState } from "react";
 import { BsCloudLightning } from "react-icons/bs";
@@ -92,6 +92,7 @@ const useBooks = () => {
   };
 
   const HandleResetFilter = () => {
+    dispatch(toggleFilter());
     dispatch(resetFilter());
     dispatch(setAllBooks(initialBooks));
     dispatch(resetPage());
@@ -114,6 +115,7 @@ const useBooks = () => {
         return true;
       }
     });
+    dispatch(toggleFilter());
     dispatch(setAllBooks(filteredBooks));
     dispatch(resetPage());
     dispatch(setNumberOfPages(Math.ceil(allBooks.length / viewNumber)));

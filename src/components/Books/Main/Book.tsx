@@ -53,7 +53,7 @@ const Book: React.FC<BookProps> = ({ book }) => {
             />
           </div>
           <h3 className={`${styles.main_booksContainer_book_name}`}>
-            {book.name}
+            {book.name.length > 50 ? `${book.name.slice(1, 50)}...` : book.name}
           </h3>
           <span className={`${styles.main_booksContainer_book_price}`}>
             {book.price}$

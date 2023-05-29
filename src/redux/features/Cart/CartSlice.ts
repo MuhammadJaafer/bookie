@@ -17,7 +17,7 @@ export interface CartState {
   open: boolean;
 }
 let initialState: CartState;
-const init = {
+const init: CartState = {
   products: [],
   subtotal: 0,
   numberOfProducts: 0,

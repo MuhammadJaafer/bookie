@@ -46,6 +46,7 @@
 
     @media screen and (max-width: 1200px) {
       grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+      min-height: 40rem;
     }
     align-items: center;
     justify-items: center;
@@ -150,6 +151,46 @@
             & svg {
               color: #f1a30b;
             }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin-top: 2rem;
+    &_search {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      & input {
+        height: 3.5rem;
+      }
+      &_filter {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        background: var.$color-white-dark2;
+        border-radius: 0.5rem;
+      }
+    }
+    &_booksContainer {
+      &_noData {
+        top: 20%;
+      }
+      &_book {
+        height: 42rem;
+
+        &:hover &_img {
+          & img {
+            scale: 1.08;
+          }
+        }
+        &_label {
+          font-weight: 400;
+        }
+        &_img {
+          & img {
+            max-width: 18rem;
           }
         }
       }
@@ -276,6 +317,36 @@
       }
     }
   }
+  @media screen and (max-width: 800px) {
+    width: fit-content;
+    background: var.$color-white;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    gap: 2.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    padding: 10rem 10rem 2rem 4rem;
+    height: 100vh;
+    justify-items: center;
+    &_active {
+      display: flex;
+    }
+    &_closeBtn {
+      width: 4rem;
+      height: 4rem;
+      position: absolute;
+      top: 3rem;
+      left: 4rem;
+      & svg {
+        width: 100%;
+        height: 100%;
+        color: var.$color-grey-dark;
+      }
+    }
+  }
 }
 
 .pagination {
@@ -315,4 +386,15 @@
       }
     }
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(0.3rem);
+  background: rgba($color: #000000, $alpha: 0.2);
+  z-index: 200;
 }

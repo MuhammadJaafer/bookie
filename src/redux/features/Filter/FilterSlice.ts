@@ -15,12 +15,14 @@ export interface filterState {
   priceRange: [number, number];
   rate: number;
   format: "all" | "paperback" | "hardcover" | "e-book" | "audiobook";
+  show: boolean;
 }
 const initialState: filterState = {
   category: "all",
   priceRange: [5, 70],
   rate: 1,
   format: "all",
+  show: false,
 };
 
 const FilterSlice = createSlice({
@@ -45,9 +47,18 @@ const FilterSlice = createSlice({
       state.rate = 1;
       state.priceRange = [5, 70];
     },
+    toggleFilter: (state) => {
+      state.show = !state.show;
+    },
   },
 });
 
-export const { setCategory, setFormat, setPriceRange, setRate, resetFilter } =
-  FilterSlice.actions;
+export const {
+  toggleFilter,
+  setCategory,
+  setFormat,
+  setPriceRange,
+  setRate,
+  resetFilter,
+} = FilterSlice.actions;
 export default FilterSlice.reducer;

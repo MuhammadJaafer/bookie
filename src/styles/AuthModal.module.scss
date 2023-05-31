@@ -234,6 +234,16 @@
       }
     }
   }
+  @media screen and (max-width: 800px) {
+    max-width: 50rem;
+    background: var.$color-white;
+    &_left {
+      display: none;
+    }
+    &_right {
+      width: 100%;
+    }
+  }
 }
 .modal_overlay {
   position: fixed;

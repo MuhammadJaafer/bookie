@@ -321,4 +321,8 @@
     border-radius: 0.5rem;
     @include ani.animate(loading, 1.4s, ease-in-out, infinite);
   }
+  @media screen and (max-width: 800px) {
+    height: 30rem;
+    width: 20rem;
+  }
 }

@@ -44,6 +44,7 @@ const Carousel: React.FC<CarouselProps> = ({ data, title }) => {
     const changeWidth = () => {
       setWidth(window.innerWidth);
     };
+    changeWidth();
     window.addEventListener("resize", changeWidth);
     if (width < 800) {
       setViewNumber(Math.min(2, all.length));

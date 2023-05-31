@@ -22,6 +22,9 @@
     }
     @include ani.animate(rotate, 1s, linear, infinite);
   }
+  @media screen and (max-width: 800px) {
+    font-size: 3rem;
+  }
 }
 
 .btn:active {
@@ -167,6 +170,20 @@
     z-index: 3;
     font-weight: 500;
     font-size: 1.2rem;
+  }
+  @media screen and (max-width: 800px) {
+    width: 6rem;
+    height: 6rem;
+    & svg {
+      width: 4rem;
+      height: 4rem;
+      vertical-align: middle;
+    }
+    & div {
+      font-size: 2rem;
+      width: 2.8rem;
+      height: 2.8rem;
+    }
   }
 }
 

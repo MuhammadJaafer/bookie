@@ -1,20 +1,20 @@
+import { auth, firestore } from "@/firebase/config";
 import {
   switchToLogin,
   switchToResetPassword,
   switchToSignup,
 } from "@/redux/features/AuthModal/AuthModalSlice";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import React, { useState } from "react";
-import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
-import UI from "../../../styles/UI.module.scss";
-import styles from "../../../styles/AuthModal.module.scss";
-import { useDispatch } from "react-redux";
-import { error } from "console";
-import { FiAlertCircle, FiLoader } from "react-icons/fi";
-import Select from "./Select";
-import { auth, firestore } from "@/firebase/config";
 import { spawn } from "child_process";
+import { error } from "console";
 import { doc, setDoc } from "firebase/firestore";
+import React, { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { FiAlertCircle, FiLoader } from "react-icons/fi";
+import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
+import { useDispatch } from "react-redux";
+import styles from "../../../styles/AuthModal.module.scss";
+import UI from "../../../styles/UI.module.scss";
+import Select from "./Select";
 type SignupProps = {};
 const countryList = [
   { label: "Afghanistan", value: "afghanistan" },
@@ -248,7 +248,6 @@ const Signup: React.FC<SignupProps> = () => {
         setFormError(error?.message!);
         return;
       }
-      console.log(UserCredential?.user.uid);
 
       // add user properties
       const userDocRef = doc(firestore, "users", UserCredential?.user.uid!);

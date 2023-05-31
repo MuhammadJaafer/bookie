@@ -1,4 +1,5 @@
 "use client";
+import { HideNav, ToggleNav } from "@/redux/features/Navbar/NavSlice";
 import { RootState } from "@/redux/store/store";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -12,7 +13,18 @@ type NavbarProps = {};
 const Navbar: React.FC<NavbarProps> = () => {
   const [mobile, setMobile] = useState(false);
   const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
+  const show = useSelector((state: RootState) => state.Nav.open);
+  //stop scrolling
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflowY = "hidden";
+      document.documentElement.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "visible";
+      document.documentElement.style.overflowY = "visible";
+    }
+  }, [show]);
+
   useEffect(() => {
     //initial check
     if (window.innerWidth <= 800) {
@@ -28,7 +40,6 @@ const Navbar: React.FC<NavbarProps> = () => {
       }
     };
     window.addEventListener("resize", handleResize);
-    console.log(mobile);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -41,11 +52,11 @@ const Navbar: React.FC<NavbarProps> = () => {
             <h1 className={`${styles.navbar_left_logo}`}>bookie</h1>
           </Link>
         </div>
-        <Right show={show} />
+        <Right />
         {mobile && (
           <div
             onClick={() => {
-              setShow((prev) => !prev);
+              dispatch(ToggleNav());
             }}
             className={`${styles.navbar_menuBtn}`}
           >
@@ -56,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = () => {
       {mobile && show && (
         <div
           onClick={() => {
-            setShow((prev) => !prev);
+            dispatch(HideNav());
           }}
           className={`${styles.overlay}`}
         ></div>

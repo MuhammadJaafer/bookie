@@ -12,19 +12,25 @@
     }
   }
   &_right {
+    width: 100%;
+    height: 100%;
     display: flex;
-    width: 50%;
-    max-width: 50rem;
-    justify-content: space-between;
-    align-items: center;
-    & a {
-      font-weight: 600;
-      font-size: var.$default-font-size;
+    justify-content: right;
+    &_container {
+      display: flex;
+      width: 50%;
+      max-width: 50rem;
+      justify-content: space-between;
+      align-items: center;
+      & a {
+        font-weight: 600;
+        font-size: var.$default-font-size;
+      }
     }
   }
   &_menuBtn {
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     position: relative;
     z-index: 500;
     & svg {
@@ -38,15 +44,28 @@
       display: none;
       width: 40rem;
       height: 100vh;
-      padding: 20rem 0;
+      padding: 10rem 0;
       position: fixed;
       top: 0;
       right: 0;
       background: var.$color-white;
-      flex-direction: column;
+      align-items: start;
+      justify-content: start;
       z-index: 300;
       &_active {
         display: flex;
+      }
+      &_container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        align-items: start;
+        padding-left: 4rem;
+        width: 100%;
+        & a {
+          font-size: 4rem;
+          text-align: left;
+        }
       }
     }
   }

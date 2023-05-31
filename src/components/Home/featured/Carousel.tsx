@@ -54,7 +54,6 @@ const Carousel: React.FC<CarouselProps> = ({ data, title }) => {
     }
     setView(all.slice(counter, viewNumber + counter));
 
-    console.log(width, viewNumber, view);
     return () => window.removeEventListener("resize", changeWidth);
   }, [all.length, viewNumber, width]);
   return (

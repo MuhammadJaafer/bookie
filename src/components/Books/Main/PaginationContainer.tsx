@@ -9,7 +9,6 @@ type PaginationContainerProps = {};
 const PaginationContainer: React.FC<PaginationContainerProps> = () => {
   const { numberOfPages, currentPage, HandleNextPage, HandlePrevPage } =
     useBooks();
-  console.log(numberOfPages);
   return (
     <div className={`${styles.pagination}`}>
       <div className={`${styles.pagination_container}`}>

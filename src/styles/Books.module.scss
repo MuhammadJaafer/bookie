@@ -327,7 +327,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 500;
+    z-index: 2000;
     padding: 10rem 10rem 2rem 4rem;
     height: 100vh;
     justify-items: center;
@@ -396,5 +396,5 @@
   height: 100vh;
   backdrop-filter: blur(0.3rem);
   background: rgba($color: #000000, $alpha: 0.2);
-  z-index: 200;
+  z-index: 1000;
 }

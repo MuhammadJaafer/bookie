@@ -2,6 +2,7 @@
 import { auth } from "@/firebase/config";
 import { ToggleModal } from "@/redux/features/AuthModal/AuthModalSlice";
 import { openCart } from "@/redux/features/Cart/CartSlice";
+import { HideNav } from "@/redux/features/Navbar/NavSlice";
 import { RootState } from "@/redux/store/store";
 import Link from "next/link";
 import React from "react";
@@ -16,6 +17,7 @@ const SignIn: React.FC<SignInProps> = () => {
   const [user] = useAuthState(auth);
   const [signOut, loading, error] = useSignOut(auth);
   const cartState = useSelector((state: RootState) => state.Cart);
+
   return (
     <>
       {user ? (
@@ -24,6 +26,7 @@ const SignIn: React.FC<SignInProps> = () => {
             className={`${UI.btn}`}
             onClick={() => {
               signOut();
+              dispatch(HideNav());
             }}
           >
             {loading ? <FiLoader /> : "Log out"}
@@ -31,6 +34,7 @@ const SignIn: React.FC<SignInProps> = () => {
           <div
             onClick={() => {
               dispatch(openCart());
+              dispatch(HideNav());
             }}
             className={`${UI.cartIcon}`}
           >
@@ -42,6 +46,7 @@ const SignIn: React.FC<SignInProps> = () => {
         <button
           onClick={() => {
             dispatch(ToggleModal());
+            dispatch(HideNav());
           }}
           className={`${UI.btn}`}
         >

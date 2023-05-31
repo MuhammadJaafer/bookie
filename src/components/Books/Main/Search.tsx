@@ -27,7 +27,6 @@ const Search: React.FC<SearchProps> = () => {
       }
     };
     window.addEventListener("resize", handleResize);
-    console.log(mobile);
     return () => {
       window.removeEventListener("resize", handleResize);
     };

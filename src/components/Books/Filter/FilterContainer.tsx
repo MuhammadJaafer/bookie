@@ -58,7 +58,6 @@ const FilterContainer: React.FC<FilterContainerProps> = () => {
       }
     };
     window.addEventListener("resize", handleResize);
-    console.log(mobile);
     return () => {
       window.removeEventListener("resize", handleResize);
     };

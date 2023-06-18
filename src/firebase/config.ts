@@ -20,4 +20,3 @@ const analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null));
 const firestore = getFirestore(app);
 
 export { auth, analytics, firestore, app };
-

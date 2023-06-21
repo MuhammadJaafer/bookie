@@ -223,7 +223,7 @@
     }
   }
 
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 400px) {
     &_booksContainer {
       grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
       &_book {

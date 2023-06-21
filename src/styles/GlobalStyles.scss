@@ -8,15 +8,17 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   font-size: 62.5%;
-
   @media screen and (max-width: 1000px) {
     font-size: 50%;
+    -webkit-text-size-adjust: none;
   }
   @media screen and (max-width: 800px) {
     font-size: 45%;
+    -webkit-text-size-adjust: none;
   }
   @media screen and (max-width: 500px) {
     font-size: 40%;
+    -webkit-text-size-adjust: none;
   }
 }
 

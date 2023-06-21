@@ -225,13 +225,13 @@
 
   @media screen and (max-width: 350px) {
     &_booksContainer {
-      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
       &_book {
-        height: 42rem;
-        width: 18rem;
+        height: 35rem;
+        width: 15rem;
         &_img {
           & img {
-            max-width: 15rem;
+            max-width: 12rem;
           }
         }
       }

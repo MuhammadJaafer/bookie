@@ -169,9 +169,18 @@
       justify-content: center;
       padding: 0;
       gap: 5rem;
+      padding-top: 2rem;
       &_bookContainer {
         margin-left: 0;
         width: 30rem;
+        &_name {
+          font-weight: 600;
+          font-size: 3rem;
+        }
+        &_price {
+          font-weight: 600;
+          font-size: 3rem;
+        }
       }
       &_menuContainer {
         margin-left: 0;
@@ -189,10 +198,23 @@
         }
       }
     }
+    &_middle {
+      &_container {
+        &_title {
+          font-size: 3rem;
+          font-weight: 600;
+        }
+        &_content {
+          font-weight: 500;
+          font-size: 2rem;
+        }
+      }
+    }
     &_right {
       gap: 3rem;
       &_title {
         font-size: 4rem;
+        font-weight: 600;
       }
       &_container {
         height: 100%;

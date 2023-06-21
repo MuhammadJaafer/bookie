@@ -174,11 +174,14 @@
       }
     }
     &_booksContainer {
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+
       &_noData {
         top: 20%;
       }
       &_book {
-        height: 42rem;
+        height: 40rem;
+        width: 20rem;
         font-weight: 600;
         &_name {
           font-size: 1.8rem;
@@ -223,7 +226,7 @@
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 350px) {
     &_booksContainer {
       grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
       &_book {

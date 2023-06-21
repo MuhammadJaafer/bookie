@@ -169,6 +169,7 @@
   &_total {
     width: 100%;
     height: 25%;
+    min-height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

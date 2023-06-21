@@ -22,6 +22,7 @@
     width: calc(100% + 10rem);
     margin: 1rem -5rem 4rem -5rem;
     border-radius: 1rem;
+    max-height: 60rem;
   }
   &_text {
     height: 100%;
@@ -233,6 +234,19 @@
         letter-spacing: 0.12rem;
       }
     }
+    @media screen and (max-width: 800px) {
+      &_text {
+        &_para {
+          font-size: var.$default-font-size;
+          font-weight: 600;
+          font-size: 2rem;
+          color: rgba(var.$color-white, 0.6);
+          text-transform: lowercase;
+          line-height: 2rem;
+          letter-spacing: 0.12rem;
+        }
+      }
+    }
   }
   &_right {
     width: 35%;
@@ -343,6 +357,7 @@
     position: relative;
     background: var.$color-black;
     overflow: hidden;
+    border-radius: 0 0 2rem 2rem;
     &_triangle1 {
       @include mix.equilateral-triangle("up", 80rem, var.$color-secondary);
       z-index: 1;

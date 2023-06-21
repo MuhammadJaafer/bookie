@@ -29,8 +29,8 @@
     }
   }
   &_menuBtn {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     position: relative;
     z-index: 500;
     & svg {
@@ -40,6 +40,12 @@
     }
   }
   @media screen and (max-width: 800px) {
+    height: 8rem;
+    &_left {
+      &_logo {
+        font-size: 5rem;
+      }
+    }
     &_right {
       display: none;
       width: 40rem;

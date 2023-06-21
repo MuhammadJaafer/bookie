@@ -6,6 +6,7 @@ import { Book as BookType } from "@/redux/features/Books/BooksSlice";
 import { addToCart } from "@/redux/features/Cart/CartSlice";
 import { RootState } from "@/redux/store/store";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FiChevronRight } from "react-icons/fi";
@@ -54,7 +55,8 @@ const BookPage: React.FC<BookPageProps> = ({ book }) => {
           <div className={`${styles.mainContainer_left_bookContainer_price}`}>
             {bookData.price}$
           </div>
-          <button
+          <Link
+            href={"/checkout"}
             onClick={() => {
               if (!user) {
                 dispatch(ToggleModal());
@@ -75,7 +77,7 @@ const BookPage: React.FC<BookPageProps> = ({ book }) => {
             className={`${styles.mainContainer_left_bookContainer_buyBtn}`}
           >
             Buy now <FiChevronRight />
-          </button>
+          </Link>
           <button
             onClick={() => {
               if (!user) {

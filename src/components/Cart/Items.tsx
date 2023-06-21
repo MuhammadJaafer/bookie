@@ -1,3 +1,4 @@
+"use client";
 import { closeCart } from "@/redux/features/Cart/CartSlice";
 import { RootState } from "@/redux/store/store";
 import React from "react";

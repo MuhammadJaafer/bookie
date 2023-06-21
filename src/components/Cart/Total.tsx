@@ -1,4 +1,8 @@
+"use client";
+
+import { closeCart } from "@/redux/features/Cart/CartSlice";
 import { RootState } from "@/redux/store/store";
+import Link from "next/link";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/Cart.module.scss";
@@ -20,9 +24,15 @@ const Total: React.FC<TotalProps> = () => {
           </div>
         </div>
       </div>
-      <button className={`${styles.cart_total_button}`}>
+      <Link
+        href={"/checkout"}
+        onClick={() => {
+          dispatch(closeCart());
+        }}
+        className={`${styles.cart_total_button}`}
+      >
         Continue to Checkout
-      </button>
+      </Link>
       <p className={`${styles.cart_total_para}`}>
         Psst, get it now before it sells out.
       </p>

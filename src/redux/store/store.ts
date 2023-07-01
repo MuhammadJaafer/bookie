@@ -4,6 +4,7 @@ import BooksSlice from "../features/Books/BooksSlice";
 import CartSlice from "../features/Cart/CartSlice";
 import FilterSlice from "../features/Filter/FilterSlice";
 import NavSlice from "../features/Navbar/NavSlice";
+import CheckoutSlice from "../features/checkout/CheckoutSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     Filter: FilterSlice,
     Cart: CartSlice,
     Nav: NavSlice,
+    Checkout: CheckoutSlice,
   },
 });
 

@@ -1,5 +1,9 @@
 "use client";
-import React from "react";
+import { auth } from "@/firebase/config";
+import { redirect } from "next/navigation";
+
+import React, { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../../styles/Checkout.module.scss";
 import CheckoutCart from "./CheckoutCart";
 import Payment from "./Payment";

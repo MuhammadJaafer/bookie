@@ -56,7 +56,7 @@ const BookPage: React.FC<BookPageProps> = ({ book }) => {
             {bookData.price}$
           </div>
           <Link
-            href={"/checkout"}
+            href={`${user ? "/checkout" : `/book/${bookData.id}`}`}
             onClick={() => {
               if (!user) {
                 dispatch(ToggleModal());

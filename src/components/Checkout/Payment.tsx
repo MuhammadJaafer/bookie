@@ -99,7 +99,7 @@ const Payment: React.FC<PaymentProps> = () => {
           className={`${styles.checkout_forms_container_form_button}`}
           type="submit"
         >
-          Continue to Payment
+          Place Order
         </button>
       </form>
     </div>

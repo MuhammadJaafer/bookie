@@ -5,6 +5,7 @@ Bookie is an E-commerce website designed to provide a seamless and user-friendly
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Live Demo](#live-demo)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -37,6 +38,10 @@ The technologies employed in the development of Bookie are as follows:
 - SASS
 - Framer Motion
 - Sanity
+
+## Live Demo
+
+Check out the live demo of the Reddit Clone: [Live Demo](https://bookie-store.vercel.app/)
 
 ## Getting Started
 To get started with Bookie, follow the instructions below.

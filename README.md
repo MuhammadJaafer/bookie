@@ -14,15 +14,19 @@ Bookie is an E-commerce website designed to provide a seamless and user-friendly
 
 ## Features
 Bookie offers the following features:
-- **Book Catalog**: Browse and search for books using different criteria, such as title, author, genre, or ISBN.
-- **User Accounts**: Create and manage user accounts, including registration, login, and password reset.
-- **Shopping Cart**: Add books to a shopping cart, view the cart contents, and proceed to checkout.
-- **Order Management**: Place orders, view order history, and track order status.
-- **Payment Integration**: Securely process payments for book purchases.
-- **Admin Panel**: Access an administrative interface to manage books, users, and orders.
-- **Headless CMS**: Utilize Sanity as a headless CMS for content management and easy updates.
-- **Google Analytics**: Gather valuable insights into user behavior and website performance.
-- **Mobile Responsive**: Enjoy a consistent and optimal browsing experience across various mobile devices.
+1. **User Registration and Authentication**: Users can create accounts, log in, and manage their personal information securely.
+2. **Book Catalog and Search**: Browse and search for books using various criteria such as title, author, genre, or ISBN.
+3. **Book Details**: View comprehensive information about each book, including descriptions, cover images, ratings, and user reviews.
+4. **Shopping Cart and Checkout**: Add books to a shopping cart, review cart contents, and proceed to a secure checkout process.
+5. **Payment Methods**: Multiple payment options are available for users to complete their purchases, including credit/debit cards, digital wallets, and more.
+6. **Cash on Delivery**: Users can choose to pay for their orders using the cash-on-delivery method for added convenience.
+7. **User Reviews and Ratings**: Users can leave reviews and ratings for books they have purchased, helping others make informed decisions.
+8. **Responsive Design and Cross-Browser Compatibility**: Bookie is designed to provide an optimal browsing experience across different devices and browsers, ensuring consistent functionality and visual appeal.
+9. **Security and Privacy**: Bookie incorporates robust security measures to protect user data and ensure secure transactions.
+10. **Usability and Accessibility**: The website is designed with user-friendly interfaces and intuitive navigation, making it easy for users to browse, purchase, and interact with the platform. Accessibility features are implemented to ensure equal access for all users.
+11. **Analytics and Reporting**: Bookie integrates with analytics tools to provide valuable insights into user behaviour, sales performance, and other key metrics, enabling data-driven decision-making.
+
+We hope these features enhance the functionality and usability of Bookie, providing a seamless and enjoyable experience for book lovers. If you have any further questions or need assistance, please don't hesitate to reach out. Happy selling and happy reading!
 
 ## Technologies Used
 The technologies employed in the development of Bookie are as follows:

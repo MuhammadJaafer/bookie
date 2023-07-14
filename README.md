@@ -41,7 +41,7 @@ The technologies employed in the development of Bookie are as follows:
 
 ## Live Demo
 
-Check out the live demo of the Reddit Clone: [Live Demo](https://bookie-store.vercel.app/)
+Check out the live demo for Bookie: [Live Demo](https://bookie-store.vercel.app/)
 
 ## Getting Started
 To get started with Bookie, follow the instructions below.
